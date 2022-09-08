@@ -1,0 +1,24 @@
+.app-wrapper {
+    background-color: red;
+    display: grid;
+    grid-template-areas: 
+    "header header"
+    "navbar content";
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 2fr 10fr;
+}
+
+.header {
+    background-color: green;
+    grid-area: header;
+}
+
+.navbar {
+    background-color: aqua;
+    grid-area: navbar;
+}
+
+.content {
+    background-color: burlywood;
+    grid-area: content;
+}

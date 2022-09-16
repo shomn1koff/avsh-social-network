@@ -2,7 +2,10 @@ import React from 'react'
 
 const CreatePostForm = () => {
   return (
-    <div>CreatePostForm</div>
+    <div>
+      <input type="text" />
+      <button>Add post</button>
+    </div>
   )
 }
 

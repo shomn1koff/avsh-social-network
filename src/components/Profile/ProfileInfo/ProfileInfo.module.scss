@@ -1,0 +1,11 @@
+img {
+    &.avatar {
+        height: 208px;
+        width: 208px;
+        border-radius: 5px;
+    }
+
+    &.headerImage {
+        height: 600px;
+    }
+}

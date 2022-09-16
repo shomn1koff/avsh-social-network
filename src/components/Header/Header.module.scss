@@ -1,0 +1,11 @@
+$color1: #009aff;
+$color2: #53abff;
+$color3: #b8c0ff;
+$color4: #f7d9ff;
+$color5: #fff3ff;
+
+.header {
+    background-color: $color5;
+    grid-area: header;
+    border-radius: 5px;
+}

@@ -1,14 +1,14 @@
 import React from 'react'
 import Posts from './Posts/Posts'
+import c from './Profile.module.scss'
+import ProfileInfo from './ProfileInfo/ProfileInfo'
 
 const Profile = () => {
   return (
-    <div className="content">
-      <div>
-        ava + descr
-      </div>
-      <Posts/>
-     </div>
+    <div className={c.content}>
+      <ProfileInfo />
+      <Posts />
+    </div>
   )
 }
 

@@ -1,0 +1,46 @@
+
+$color1: #009aff;
+$color2: #53abff;
+$color3: #b8c0ff;
+$color4: #f7d9ff;
+$color5: #fff3ff;
+
+.dialogsWrapper {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.dialogs {
+    padding: 10px;
+
+    .dialog {
+        color: black;
+        a {
+            text-decoration: none;
+            color: black;
+            &.activeDialog {
+                color: gold;
+            }
+        }
+    }
+
+    
+}
+
+.messages {
+    background-color: $color5;
+    border-radius: 5px;
+    padding: 10px;
+    word-break: break-all;
+    
+
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: $color3;
+    border-radius: 5px;
+}
+
+

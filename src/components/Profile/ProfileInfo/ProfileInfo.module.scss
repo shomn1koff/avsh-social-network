@@ -1,7 +1,28 @@
+.profileDescription {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    display: grid;
+    grid-template-areas: 
+    "a n"
+    "a d";
+    
+    gap: 8px;
+
+    .profileName {
+        grid-area: n;
+        font-size: 48px;
+    }
+
+    .profileDescription {
+        align-self: center;
+    }
+}
+
 img {
     &.avatar {
+        grid-area: a;
         height: 208px;
-        width: 208px;
+        width: auto;
         border-radius: 5px;
     }
 

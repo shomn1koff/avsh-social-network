@@ -1,11 +1,22 @@
 $color1: #009aff;
 $color2: #53abff;
 $color3: #b8c0ff;
-$color4: #f7d9ff;
+$color4: #efbafe;
 $color5: #fff3ff;
 
+
+
 .header {
-    background-color: $color5;
+    background-color: $color1;
     grid-area: header;
     border-radius: 5px;
+    padding: 8px;
+
+    h1 {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 300;
+        margin-top: 0.25em;
+        margin-bottom: 0.25em;
+        margin-left: 1em;
+    }
 }

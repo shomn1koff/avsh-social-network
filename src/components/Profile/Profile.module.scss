@@ -1,5 +1,12 @@
+$color1: #009aff;
+$color2: #53abff;
+$color3: #b8c0ff;
+$color4: #efbafe;
+$color5: #fff3ff;
+
+
 .content {
-    background-color: burlywood;
+    background-color: $color4;
     grid-area: content;
     padding: 20px;
 }

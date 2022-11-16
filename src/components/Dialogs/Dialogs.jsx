@@ -1,38 +1,21 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import DialogItem from './DialogItem/DialogItem'
 import c from './Dialogs.module.scss'
+import Message from './Message/Message'
 
 
-const Dialog = ({ id, name }) => {
-  return (
-    <div className={c.dialog}>
-      <NavLink to={'/dialogs/1' + id} className={({ isActive }) => isActive ? c.activeDialog : undefined}>{name}</NavLink>
-    </div>
-  )
-}
 
-const Message = ({senderName, message}) => {
-  return (
-    <div className={c.message}>
-      <h3>{senderName}</h3>
-      <p>{message}</p>
-    </div>
-  )
-}
 
-const Dialogs = () => {
+const Dialogs = ({dialogs, messages}) => {
+  const dialogElements = dialogs.map((dialog => <DialogItem id={dialog.id} name={dialog.name}/>))
+  const messageElements = messages.map((msg) => <Message senderName={msg.senderName} message={msg.message}/>)
   return (
     <div className={c.dialogsWrapper}>
       <div className={c.dialogs}>
-        <Dialog id={'1'} name={'Alexey Shichko'} />
-        <Dialog id={'2'} name={'Sergey Zykov'} />
-        <Dialog id={'3'} name={'Kira Kirillov'} />
-        <Dialog id={'4'} name={'Maxim Synukov'} />
-        <Dialog id={'5'} name={'Sasha Vedenkov'} />
+        {dialogElements}
       </div>
       <div className={c.messages}>
-        <Message senderName={'Viktor'} message={'lorem'}/>
-        <Message senderName={'Korneplod'} message={'lordsaofjaodfemlordsaofjaoавфывагрфыващгрфшыгврашфгыврашгфрывашфрывшгарфшыгврашгфырвашгфрывшагрфышвгарфшрывашгфрывшгарфшгыврашфгырвашгфрвшагрфывшгарфшыгврашфгыврашфгывр'}/>
+        {messageElements}
       </div>
     </div>
   )

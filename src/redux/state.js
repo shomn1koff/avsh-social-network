@@ -1,6 +1,10 @@
 let state = {
     posts: [
-        {id: 1, msg: 'asidfasd', likesCount: 12}
+        {id: 1, msg: 'asidfasd', likesCount: 12},
+        {id: 1, msg: 'lol', likesCount: 228},
+        {id: 1, msg: 'lolol', likesCount: 1337},
+        {id: 1, msg: 'lololo', likesCount: 322},
+        {id: 1, msg: 'asidfddasd', likesCount: 12}
     ],
     dialogs: [
         {id: 1, name: 'Alex'},

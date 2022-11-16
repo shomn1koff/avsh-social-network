@@ -6,13 +6,12 @@ import Profile from './components/Profile/Profile';
 
 import {
   BrowserRouter as Router,
-  Switch,
+
   Routes,
   Route,
-  Link
 } from "react-router-dom";
 
-function App(state) {
+function App({dialogs, messages}) {
   return (
     <Router>
       <div className="app-wrapper">
@@ -20,7 +19,7 @@ function App(state) {
         <Navbar />
         <div className="app-wrapper-content">
           <Routes>
-            <Route path="/dialogs/*" element={<Dialogs />} />
+            <Route path="/dialogs/*" element={<Dialogs dialogs={dialogs} messages={messages}/>} />
             <Route path="/profile" element={<Profile />} />
           </Routes>
         </div>

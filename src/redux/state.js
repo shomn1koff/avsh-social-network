@@ -1,10 +1,10 @@
 let state = {
     posts: [
-        {id: 1, msg: 'asidfasd', likesCount: 12},
-        {id: 1, msg: 'lol', likesCount: 228},
-        {id: 1, msg: 'lolol', likesCount: 1337},
-        {id: 1, msg: 'lololo', likesCount: 322},
-        {id: 1, msg: 'asidfddasd', likesCount: 12}
+        {id: 1, message: 'asidfasd', likesCount: 12},
+        {id: 2, message: 'lol', likesCount: 228},
+        {id: 3, message: 'lolol', likesCount: 1337},
+        {id: 4, message: 'lololo', likesCount: 322},
+        {id: 5, message: 'asidfddasd', likesCount: 12}
     ],
     dialogs: [
         {id: 1, name: 'Alex'},
@@ -14,11 +14,11 @@ let state = {
         {id: 5, name: 'Shotovich'},
     ],
     messages: [
-        {id: 1, msg: 'Hi'},
-        {id: 2, msg: 'Loerm'},
-        {id: 3, msg: 'Ipmusdf'},
-        {id: 4, msg: 'aiosudhf'},
-        {id: 5, msg: 'sdf'},
+        {senderName: 'Viktor', message: 'Hi'},
+        {senderName: 'Korneplod', message: 'Loerm'},
+        {senderName: 'Lol', message: 'Ipmusdf'},
+        {senderName: 'Kek', message: 'aiosudhf'},
+        {senderName: 'Cheburek', message: 'sdf'},
     ]
 
 }

@@ -1,15 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import state from './redux/state';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
+import state, { addNewMessage } from './redux/state'
+import { rerenderAllTree } from './render'
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App state={state}/>
-  </React.StrictMode>
-);
+rerenderAllTree(state)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

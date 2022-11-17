@@ -1,5 +1,5 @@
 import React from 'react'
-import c from '../../Dialogs/Dialogs.module.scss'
+import c from './Message.module.scss'
 
 const Message = ({senderName, message}) => {
     return (

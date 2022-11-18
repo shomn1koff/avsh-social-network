@@ -7,16 +7,17 @@ $color5: #fff3ff;
 
 
 .header {
-    background-color: $color1;
+    background: #1b2b65;
+    border-radius: 8px;   
     grid-area: header;
-    border-radius: 5px;
     padding: 8px;
 
     h1 {
-        font-family: 'Roboto', sans-serif;
-        font-weight: 300;
-        margin-top: 0.25em;
-        margin-bottom: 0.25em;
-        margin-left: 1em;
+        font-family: 'Roboto';
+        font-weight: 100;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        margin-left: 8px;
     }
 }

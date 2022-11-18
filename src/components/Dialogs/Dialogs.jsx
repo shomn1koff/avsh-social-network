@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '../UI/Button/Button'
+import Input from '../UI/Input/Input'
 import DialogItem from './DialogItem/DialogItem'
 import c from './Dialogs.module.scss'
 import Message from './Message/Message'
@@ -25,9 +26,9 @@ const Dialogs = ({dialogs, messages, addNewMessage}) => {
         {dialogElements}
       </div>
       <div className={c.messages}>
-        <div className="input">
-          <input type="text" ref={newMessageElement}/>
-          <Button onClick={addMessage}>Add message</Button>
+        <div className={c.messageForm}>
+          <Input type="text" state={'success'} placeholder={'Введите сообщение'} ref={newMessageElement}/>
+          <Button type={'secondary'} onClick={addMessage}>Add message</Button>
         </div>
         {messageElements}
       </div>

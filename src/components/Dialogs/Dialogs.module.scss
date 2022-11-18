@@ -11,7 +11,7 @@ $color5: #fff3ff;
 
 .dialogs {
   padding: 12px;
-  background-color: #081a51;
+  background-color: #F8F9FF;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -22,4 +22,10 @@ $color5: #fff3ff;
   border-radius: 8px;
   padding: 12px;
   word-break: break-all;
+}
+
+.messageForm {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
 }

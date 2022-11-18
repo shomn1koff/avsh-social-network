@@ -1,13 +1,14 @@
 import React from 'react'
 import c from './Post.module.scss'
 
-const Post = (props) => {
+const Post = ({message, likesCount, avatar, ...props}) => {
   return (
-
-    <div>
-      <img className={c.avatar} src={props.avatar} alt="" />
-      <div>{props.title}</div>
-      <div>Likes: {props.likesCount}</div>
+    <div className={c.post}>
+      <img className={c.avatar} src={avatar} alt="" />
+      <div className={c.content}>
+        <div>{message}</div>
+        <div>Likes: {likesCount}</div>
+      </div>
     </div>
   )
 }

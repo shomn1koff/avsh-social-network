@@ -1,6 +1,26 @@
-img {
-    &.avatar {
-        height: 50px;
-        width: 50px;
-    }
+* {
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+.post {
+    display: flex;
+    gap: 16px;
+    margin: 16px 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-betweens;
+}
+
+
+
+.avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 20%;
+  object-fit: cover;
 }

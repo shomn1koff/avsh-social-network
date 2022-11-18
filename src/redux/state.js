@@ -1,13 +1,15 @@
 import { rerenderAllTree } from "../render"
 
 let state = {
-    posts: [
-        {id: 1, message: 'asidfasd', likesCount: 12},
-        {id: 2, message: 'lol', likesCount: 228},
-        {id: 3, message: 'lolol', likesCount: 1337},
-        {id: 4, message: 'lololo', likesCount: 322},
-        {id: 5, message: 'asidfddasd', likesCount: 12}
-    ],
+    profilePage: {
+        posts: [
+            {id: 1, message: 'asidfasd', likesCount: 12},
+            {id: 2, message: 'lol', likesCount: 228},
+            {id: 3, message: 'lolol', likesCount: 1337},
+            {id: 4, message: 'lololo', likesCount: 322},
+            {id: 5, message: 'asidfddasd', likesCount: 12}
+        ],
+    },
     dialogsPage: {
         dialogs: [
             {id: 1, name: 'Alex'},
@@ -34,6 +36,16 @@ export let addNewMessage = (text) => {
     }
     state.dialogsPage.messages.push(newMessage)
     rerenderAllTree(state)
+}
+
+export let addNewPost = (text) => {
+    // let newPost = {
+    //     id: state.profilePage.posts.length + 1,
+    //     message: text,
+    //     likesCount: 322
+    // }
+    // state.profilePage.posts.push(newPost)
+    // rerenderAllTree(state)
 }
 
 export default state;

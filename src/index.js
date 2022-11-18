@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-import state, { addNewMessage } from './redux/state'
+import state from './redux/state'
 import { rerenderAllTree } from './render'
 
 rerenderAllTree(state)

@@ -7,6 +7,7 @@ import Message from './Message/Message'
 
 
 
+
 const Dialogs = ({dialogs, messages, addNewMessage}) => {
   const dialogElements = dialogs.map((dialog => <DialogItem id={dialog.id} name={dialog.name}/>))
   const messageElements = messages.map((msg) => <Message senderName={msg.senderName} message={msg.message}/>)

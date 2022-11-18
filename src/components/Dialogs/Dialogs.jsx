@@ -26,7 +26,7 @@ const Dialogs = ({dialogs, messages, addNewMessage}) => {
       </div>
       <div className={c.messages}>
         <div className={c.messageForm}>
-          <Input type="text" state={'success'} placeholder={'Введите сообщение'} ref={newMessageElement}/>
+          <Input type="text" state={'success'} placeholder={'Введите сообщение'} reference={newMessageElement}/>
           <Button type={'secondary'} onClick={addMessage}>Add message</Button>
         </div>
         {messageElements}

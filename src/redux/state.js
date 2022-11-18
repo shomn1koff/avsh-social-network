@@ -39,13 +39,13 @@ export let addNewMessage = (text) => {
 }
 
 export let addNewPost = (text) => {
-    // let newPost = {
-    //     id: state.profilePage.posts.length + 1,
-    //     message: text,
-    //     likesCount: 322
-    // }
-    // state.profilePage.posts.push(newPost)
-    // rerenderAllTree(state)
+    let newPost = {
+        id: state.profilePage.posts.length + 1,
+        message: text,
+        likesCount: 322
+    }
+    state.profilePage.posts.push(newPost)
+    rerenderAllTree(state)
 }
 
 export default state;

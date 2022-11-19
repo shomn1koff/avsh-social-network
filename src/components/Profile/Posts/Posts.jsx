@@ -2,11 +2,11 @@ import React from 'react'
 import CreatePostForm from './CreatePostForm/CreatePostForm'
 import PostList from './PostList/PostList'
 
-const Posts = ({ posts, addNewPost }) => {
+const Posts = ({ profilePage, addNewPost, updateNewPostText}) => {
   return (
     <div>
-      <CreatePostForm addNewPost={addNewPost} />
-      <PostList posts={posts}/>
+      <CreatePostForm newPostText={profilePage.newPostText} addNewPost={addNewPost} updateNewPostText={updateNewPostText} />
+      <PostList posts={profilePage.posts}/>
     </div>
   )
 }

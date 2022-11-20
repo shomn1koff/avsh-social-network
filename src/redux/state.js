@@ -1,4 +1,6 @@
-import { rerenderAllTree } from '../render'
+let rerenderAllTree = () => {
+    console.log('like rerender')
+}
 
 let state = {
   profilePage: {
@@ -29,6 +31,8 @@ let state = {
   },
 }
 
+window.state = state
+
 export let addNewMessage = (text) => {
   let newMessage = {
     senderName: 'John Dhow',
@@ -46,14 +50,18 @@ export let addNewPost = (text) => {
   }
   state.profilePage.posts.push(newPost)
   rerenderAllTree(state)
-  console.log(state.profilePage.posts)
+  //console.log(state.profilePage.posts)
 }
 
 export let updateNewPostText = (text) => {
   let newValue = text
   state.profilePage.newPostText = newValue
   rerenderAllTree(state)
-  console.log(state.profilePage.newPostText)
+  //console.log(state.profilePage.newPostText)
+}
+
+export let subscribe = (observer) => {
+    rerenderAllTree = observer
 }
 
 export default state

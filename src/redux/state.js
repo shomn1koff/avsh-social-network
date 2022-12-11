@@ -77,28 +77,53 @@ export let store = {
 	subscribe(observer) {
 		this._callSubscriber = observer;
 	},
-	addNewPost(text) {
-		let newPost = {
-			id: this.getState().profilePage.posts.count + 1,
-			message: text,
-			count: 1488,
-		};
-		this._state.profilePage.posts.push(newPost);
-		this._callSubscriber();
+
+	dispatch(action) {
+		if (action.type === 'ADD-NEW-POST') {
+			let newPost = {
+				id: this.getState().profilePage.posts.count + 1,
+				message: action.text,
+				count: 1488,
+			};
+			this._state.profilePage.posts.push(newPost);
+			this._callSubscriber();
+		} else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+			let newValue = action.text
+			this._state.profilePage.newPostText = newValue
+			this._callSubscriber()
+		} else if (action.type === 'ADD-NEW-MESSAGE') {
+			let newMessage = {
+				senderName: "John Dhow",
+				message: action.text,
+			};
+			this._state.dialogsPage.messages.push(newMessage);
+			this._callSubscriber()
+		} else {
+			console.log('store error')
+		}
 	},
-	addNewMessage(text) {
-		let newMessage = {
-			senderName: "John Dhow",
-			message: text,
-		};
-		this._state.dialogsPage.messages.push(newMessage);
-        this._callSubscriber()
-	},
-    updateNewPostText(text) {
-        let newValue = text
-        this._state.profilePage.newPostText = newValue
-        this._callSubscriber()
-    }
+	// addNewPost(text) {
+	// 	let newPost = {
+	// 		id: this.getState().profilePage.posts.count + 1,
+	// 		message: text,
+	// 		count: 1488,
+	// 	};
+	// 	this._state.profilePage.posts.push(newPost);
+	// 	this._callSubscriber();
+	// },
+	// addNewMessage(text) {
+		// let newMessage = {
+		// 	senderName: "John Dhow",
+		// 	message: text,
+		// };
+		// this._state.dialogsPage.messages.push(newMessage);
+        // this._callSubscriber()
+	// },
+    // updateNewPostText(text) {
+    //     let newValue = text
+    //     this._state.profilePage.newPostText = newValue
+    //     this._callSubscriber()
+    // }
 };
 
 export default store

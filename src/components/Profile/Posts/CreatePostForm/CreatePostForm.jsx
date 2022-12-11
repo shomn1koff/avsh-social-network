@@ -3,18 +3,18 @@ import Input from '../../../UI/Input/Input'
 import Button from '../../../UI/Button/Button'
 import c from './CreatePostForm.module.scss'
 
-const CreatePostForm = ({addNewPost, newPostText, updateNewPostText}) => {
+const CreatePostForm = ({dispatch, newPostText, updateNewPostText}) => {
 
   let newPostElement = React.createRef()
 
   let addPost = () => {
-    addNewPost(newPostText)
+    dispatch({ type: 'ADD-NEW-POST', text: newPostText})
     updateNewPostText('')
   }
 
   let updateTextInput = () => {
     let text = newPostElement.current.value
-    updateNewPostText(text)
+    dispatch({type: 'UPDATE-NEW-POST-TEXT', text: text})
   }
 
   return (

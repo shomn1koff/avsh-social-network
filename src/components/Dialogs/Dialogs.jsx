@@ -8,14 +8,14 @@ import Message from './Message/Message'
 
 
 
-const Dialogs = ({dialogs, messages, addNewMessage}) => {
+const Dialogs = ({dialogs, messages, dispatch}) => {
   const dialogElements = dialogs.map((dialog => <DialogItem id={dialog.id} name={dialog.name}/>))
   const messageElements = messages.map((msg) => <Message senderName={msg.senderName} message={msg.message}/>)
 
   let newMessageElement = React.createRef()
   let addMessage = () => {
     let text = newMessageElement.current.value
-    addNewMessage(text)
+    dispatch({type: 'ADD-NEW-MESSAGE', text: text})
     newMessageElement.current.value = ''
   }
 
@@ -27,7 +27,7 @@ const Dialogs = ({dialogs, messages, addNewMessage}) => {
       </div>
       <div className={c.messages}>
         <div className={c.messageForm}>
-          <Input type="text" state={'success'} placeholder={'Введите сообщение'} reference={newMessageElement}/>
+          <Input type="text" state={'success'} placeholder={'Введите сообщение@'} reference={newMessageElement}/>
           <Button type={'secondary'} onClick={addMessage}>Add message</Button>
         </div>
         {messageElements}

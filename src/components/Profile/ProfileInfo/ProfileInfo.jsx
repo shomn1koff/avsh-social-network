@@ -11,7 +11,7 @@ const ProfileInfo = () => {
           alt="ava"
         />
         <div className={c.nameAndDescription}>
-          <p className={c.profileName}>Алексей Шомников</p>
+          <p className={c.profileName}>Глад Валакас</p>
           <p className={c.profileDescription}>
             Глад Валакас (Пенис Детров, Жмышенко Валерий Альбертович) – стример
             онлайн-игр, ставший известным благодаря образу 54-летнего деда.

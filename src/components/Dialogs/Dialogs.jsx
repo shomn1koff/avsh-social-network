@@ -5,18 +5,25 @@ import DialogItem from './DialogItem/DialogItem'
 import c from './Dialogs.module.scss'
 import Message from './Message/Message'
 
+import { addNewMessageActionCreator, updateNewMessageBodyActionCreator } from '../../redux/state'
 
 
 
-const Dialogs = ({dialogs, messages, dispatch}) => {
-  const dialogElements = dialogs.map((dialog => <DialogItem id={dialog.id} name={dialog.name}/>))
-  const messageElements = messages.map((msg) => <Message senderName={msg.senderName} message={msg.message}/>)
 
-  let newMessageElement = React.createRef()
+const Dialogs = ({dialogsPage, dispatch}) => {
+  const dialogElements = dialogsPage.dialogs.map((dialog => <DialogItem id={dialog.id} name={dialog.name}/>))
+  const messageElements = dialogsPage.messages.map((msg) => <Message senderName={msg.senderName} message={msg.message}/>)
+
+  let newMessageBody = dialogsPage.newMessageBody
+
   let addMessage = () => {
-    let text = newMessageElement.current.value
-    dispatch({type: 'ADD-NEW-MESSAGE', text: text})
-    newMessageElement.current.value = ''
+    dispatch(addNewMessageActionCreator())
+  }
+
+  const onNewMessageChange = (e) => {
+    let text = e.target.value
+    dispatch(updateNewMessageBodyActionCreator(text))
+    console.log(text)
   }
 
 
@@ -27,7 +34,7 @@ const Dialogs = ({dialogs, messages, dispatch}) => {
       </div>
       <div className={c.messages}>
         <div className={c.messageForm}>
-          <Input type="text" state={'success'} placeholder={'Введите сообщение@'} reference={newMessageElement}/>
+          <Input type="text" state={'success'} value={newMessageBody} onChange={onNewMessageChange} placeholder={'Введите сообщение!'}/>
           <Button type={'secondary'} onClick={addMessage}>Add message</Button>
         </div>
         {messageElements}

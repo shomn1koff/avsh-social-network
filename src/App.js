@@ -19,7 +19,7 @@ function App({store}) {
         <Navbar />
         <div className="app-wrapper-content">
           <Routes>
-            <Route path="/dialogs/*" element={<Dialogs dialogs={store.getState().dialogsPage.dialogs} messages={store.getState().dialogsPage.messages} dispatch={store.dispatch.bind(store)}/>} />
+            <Route path="/dialogs/*" element={<Dialogs dialogsPage={store.getState().dialogsPage} dispatch={store.dispatch.bind(store)}/>} />
             <Route path="/profile" element={<Profile profilePage={store.getState().profilePage} dispatch={store.dispatch.bind(store)}/>} />
           </Routes>
         </div>

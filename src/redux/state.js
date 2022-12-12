@@ -1,43 +1,8 @@
-// let rerenderAllTree = () => {
-// 	console.log("like rerender");
-// };
+const ADD_NEW_POST = 'ADD-NEW-POST'
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE'
+const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY'
 
-// let state = {};
-
-// window.state = state;
-
-// export let addNewMessage = (text) => {
-// 	let newMessage = {
-// 		senderName: "John Dhow",
-// 		message: text,
-// 	};
-// 	state.dialogsPage.messages.push(newMessage);
-// 	rerenderAllTree(state);
-// };
-
-// export let addNewPost = (text) => {
-// 	let newPost = {
-// 		id: state.profilePage.posts.length + 1,
-// 		message: text,
-// 		likesCount: 322,
-// 	};
-// 	state.profilePage.posts.push(newPost);
-// 	rerenderAllTree(state);
-// 	//console.log(state.profilePage.posts)
-// };
-
-// export let updateNewPostText = (text) => {
-// 	let newValue = text;
-// 	state.profilePage.newPostText = newValue;
-// 	rerenderAllTree(state);
-// 	//console.log(state.profilePage.newPostText)
-// };
-
-// export let subscribe = (observer) => {
-// 	rerenderAllTree = observer;
-// };
-
-// export default state;
 
 export let store = {
 	_callSubscriber() {
@@ -69,6 +34,7 @@ export let store = {
 				{ senderName: "Kek", message: "aiosudhf" },
 				{ senderName: "Cheburek", message: "sdf" },
 			],
+			newMessageBody: 'msgBody'
 		},
 	},
 	getState() {
@@ -79,22 +45,26 @@ export let store = {
 	},
 
 	dispatch(action) {
-		if (action.type === 'ADD-NEW-POST') {
+		if (action.type === ADD_NEW_POST) {
 			let newPost = {
 				id: this.getState().profilePage.posts.count + 1,
-				message: action.text,
+				message: this._state.profilePage.newPostText,
 				count: 1488,
 			};
 			this._state.profilePage.posts.push(newPost);
 			this._callSubscriber();
-		} else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+		} else if (action.type === UPDATE_NEW_POST_TEXT) {
 			let newValue = action.text
 			this._state.profilePage.newPostText = newValue
 			this._callSubscriber()
-		} else if (action.type === 'ADD-NEW-MESSAGE') {
+		} else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
+			let newValue = action.text
+			this._state.dialogsPage.newMessageBody = newValue
+			this._callSubscriber()
+		} else if (action.type === ADD_NEW_MESSAGE) {
 			let newMessage = {
 				senderName: "John Dhow",
-				message: action.text,
+				message: this._state.dialogsPage.newMessageBody,
 			};
 			this._state.dialogsPage.messages.push(newMessage);
 			this._callSubscriber()
@@ -102,28 +72,14 @@ export let store = {
 			console.log('store error')
 		}
 	},
-	// addNewPost(text) {
-	// 	let newPost = {
-	// 		id: this.getState().profilePage.posts.count + 1,
-	// 		message: text,
-	// 		count: 1488,
-	// 	};
-	// 	this._state.profilePage.posts.push(newPost);
-	// 	this._callSubscriber();
-	// },
-	// addNewMessage(text) {
-		// let newMessage = {
-		// 	senderName: "John Dhow",
-		// 	message: text,
-		// };
-		// this._state.dialogsPage.messages.push(newMessage);
-        // this._callSubscriber()
-	// },
-    // updateNewPostText(text) {
-    //     let newValue = text
-    //     this._state.profilePage.newPostText = newValue
-    //     this._callSubscriber()
-    // }
+	
 };
 
+export const addNewMessageActionCreator = () => ({ type: ADD_NEW_MESSAGE})
+export const addNewPostActionCreator = () => ({ type: ADD_NEW_POST})
+export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, text: text})
+export const updateNewMessageBodyActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_BODY, text: text})
+
+
 export default store
+window.store = store

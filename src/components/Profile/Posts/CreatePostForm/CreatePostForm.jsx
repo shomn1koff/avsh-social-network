@@ -3,18 +3,23 @@ import Input from '../../../UI/Input/Input'
 import Button from '../../../UI/Button/Button'
 import c from './CreatePostForm.module.scss'
 
-const CreatePostForm = ({dispatch, newPostText, updateNewPostText}) => {
+import { addNewPostActionCreator, updateNewPostTextActionCreator } from '../../../../redux/state'
+
+
+
+const CreatePostForm = ({dispatch, newPostText}) => {
 
   let newPostElement = React.createRef()
 
   let addPost = () => {
-    dispatch({ type: 'ADD-NEW-POST', text: newPostText})
-    updateNewPostText('')
+    dispatch(addNewPostActionCreator())
+    dispatch(updateNewPostTextActionCreator(''))
   }
 
   let updateTextInput = () => {
     let text = newPostElement.current.value
-    dispatch({type: 'UPDATE-NEW-POST-TEXT', text: text})
+    let action = updateNewPostTextActionCreator(text)
+    dispatch(action)
   }
 
   return (

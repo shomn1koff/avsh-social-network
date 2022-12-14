@@ -5,7 +5,7 @@ import DialogItem from './DialogItem/DialogItem'
 import c from './Dialogs.module.scss'
 import Message from './Message/Message'
 
-import { addNewMessageActionCreator, updateNewMessageBodyActionCreator } from '../../redux/state'
+import { addNewMessageActionCreator, updateNewMessageBodyActionCreator } from '../../redux/dialogsPageReducer'
 
 
 

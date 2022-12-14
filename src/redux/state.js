@@ -1,7 +1,6 @@
-const ADD_NEW_POST = 'ADD-NEW-POST'
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
-const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE'
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY'
+import { dialogsPageReducer } from "./dialogsPageReducer";
+import { profilePageReducer } from "./profilePageReducer";
+
 
 
 export let store = {
@@ -45,40 +44,13 @@ export let store = {
 	},
 
 	dispatch(action) {
-		if (action.type === ADD_NEW_POST) {
-			let newPost = {
-				id: this.getState().profilePage.posts.count + 1,
-				message: this._state.profilePage.newPostText,
-				count: 1488,
-			};
-			this._state.profilePage.posts.push(newPost);
-			this._callSubscriber();
-		} else if (action.type === UPDATE_NEW_POST_TEXT) {
-			let newValue = action.text
-			this._state.profilePage.newPostText = newValue
-			this._callSubscriber()
-		} else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
-			let newValue = action.text
-			this._state.dialogsPage.newMessageBody = newValue
-			this._callSubscriber()
-		} else if (action.type === ADD_NEW_MESSAGE) {
-			let newMessage = {
-				senderName: "John Dhow",
-				message: this._state.dialogsPage.newMessageBody,
-			};
-			this._state.dialogsPage.messages.push(newMessage);
-			this._callSubscriber()
-		} else {
-			console.log('store error')
-		}
+		profilePageReducer(this._state.profilePage, action)
+		dialogsPageReducer(this._state.dialogsPage, action)
+		this._callSubscriber()
 	},
 	
 };
 
-export const addNewMessageActionCreator = () => ({ type: ADD_NEW_MESSAGE})
-export const addNewPostActionCreator = () => ({ type: ADD_NEW_POST})
-export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, text: text})
-export const updateNewMessageBodyActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_BODY, text: text})
 
 
 export default store

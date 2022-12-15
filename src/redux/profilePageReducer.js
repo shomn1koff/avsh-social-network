@@ -1,4 +1,15 @@
-export const profilePageReducer = (state, action) => {
+let initialState = {
+    posts: [
+        { id: 1, message: "asidfasd", likesCount: 12 },
+        { id: 2, message: "lol", likesCount: 228 },
+        { id: 3, message: "lolol", likesCount: 1337 },
+        { id: 4, message: "lololo", likesCount: 322 },
+        { id: 5, message: "asidfddasd", likesCount: 12 },
+    ],
+    newPostText: "fffffffff",
+}
+
+export const profilePageReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case ADD_NEW_POST:
 			let newPost = {

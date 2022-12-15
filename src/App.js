@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 
 function App({store}) {
+  
   return (
     <Router>
       <div className="app-wrapper">

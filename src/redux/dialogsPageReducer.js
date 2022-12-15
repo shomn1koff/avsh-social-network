@@ -1,4 +1,23 @@
-export const dialogsPageReducer = (state, action) => {
+let initialState = {
+    dialogs: [
+        { id: 1, name: "Alex" },
+        { id: 2, name: "Elena" },
+        { id: 3, name: "Maxim" },
+        { id: 4, name: "Zurab" },
+        { id: 5, name: "Shotovich" },
+    ],
+    messages: [
+        { senderName: "Viktor", message: "Hi" },
+        { senderName: "Korneplod", message: "Loerm" },
+        { senderName: "Lol", message: "Ipmusdf" },
+        { senderName: "Kek", message: "aiosudhf" },
+        { senderName: "Cheburek", message: "sdf" },
+    ],
+    newMessageBody: 'msgBody'
+}
+
+
+export const dialogsPageReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case ADD_NEW_MESSAGE:
 			let newMessage = {

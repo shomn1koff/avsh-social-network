@@ -46,7 +46,7 @@ export let store = {
 	dispatch(action) {
 		profilePageReducer(this._state.profilePage, action)
 		dialogsPageReducer(this._state.dialogsPage, action)
-		this._callSubscriber()
+		this._callSubscriber(this)
 	},
 	
 };

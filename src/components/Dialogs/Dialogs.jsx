@@ -5,25 +5,19 @@ import DialogItem from './DialogItem/DialogItem'
 import c from './Dialogs.module.scss'
 import Message from './Message/Message'
 
-import { addNewMessageActionCreator, updateNewMessageBodyActionCreator } from '../../redux/dialogsPageReducer'
 
 
-
-
-const Dialogs = ({dialogsPage, dispatch}) => {
+const Dialogs = ({dialogsPage, addMessage, updateNewMessageBody, newMessageBody}) => {
   const dialogElements = dialogsPage.dialogs.map((dialog => <DialogItem id={dialog.id} name={dialog.name}/>))
   const messageElements = dialogsPage.messages.map((msg) => <Message senderName={msg.senderName} message={msg.message}/>)
 
-  let newMessageBody = dialogsPage.newMessageBody
-
-  let addMessage = () => {
-    dispatch(addNewMessageActionCreator())
+  let onAddMessage = () => {
+    addMessage()
   }
 
   const onNewMessageChange = (e) => {
     let text = e.target.value
-    dispatch(updateNewMessageBodyActionCreator(text))
-    console.log(text)
+    updateNewMessageBody(text)
   }
 
 
@@ -35,7 +29,7 @@ const Dialogs = ({dialogsPage, dispatch}) => {
       <div className={c.messages}>
         <div className={c.messageForm}>
           <Input type="text" state={'success'} value={newMessageBody} onChange={onNewMessageChange} placeholder={'Введите сообщение!'}/>
-          <Button type={'secondary'} onClick={addMessage}>Add message</Button>
+          <Button type={'secondary'} onClick={onAddMessage}>Add message</Button>
         </div>
         {messageElements}
       </div>

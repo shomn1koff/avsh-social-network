@@ -21,7 +21,7 @@ function App({store}) {
         <div className="app-wrapper-content">
           <Routes>
             <Route path="/dialogs/*" element={<DialogsContainer store={store}/>} />
-            <Route path="/profile" element={<Profile profilePage={store.getState().profilePage} dispatch={store.dispatch.bind(store)}/>} />
+            <Route path="/profile" element={<Profile store={store}/>} />
           </Routes>
         </div>
         {/* <Profile/> */}

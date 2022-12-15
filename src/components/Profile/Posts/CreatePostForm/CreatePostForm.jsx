@@ -3,23 +3,16 @@ import Input from '../../../UI/Input/Input'
 import Button from '../../../UI/Button/Button'
 import c from './CreatePostForm.module.scss'
 
-import { addNewPostActionCreator, updateNewPostTextActionCreator } from '../../../../redux/profilePageReducer'
 
+const CreatePostForm = ({newPostText, addPost, updateNewPostText}) => {
+  
 
-
-const CreatePostForm = ({dispatch, newPostText}) => {
-
-  let newPostElement = React.createRef()
-
-  let addPost = () => {
-    dispatch(addNewPostActionCreator())
-    dispatch(updateNewPostTextActionCreator(''))
+  const onAddPost = () => {
+    addPost()
   }
 
-  let updateTextInput = () => {
-    let text = newPostElement.current.value
-    let action = updateNewPostTextActionCreator(text)
-    dispatch(action)
+  let onNewPostTextChange = (e) => {
+    updateNewPostText(e)
   }
 
   const handleKeyDown = (e) => {
@@ -31,8 +24,8 @@ const CreatePostForm = ({dispatch, newPostText}) => {
 
   return (
     <div className={c.formWrapper}>
-      <Input type="text" state={'success'} placeholder={'Введите сообщение'} value={newPostText} onChange={updateTextInput} onKeyDown={handleKeyDown} reference={newPostElement}/>
-      <Button type={'secondary'} onClick={addPost}>Добавить пост</Button>
+      <Input type="text" state={'success'} placeholder={'Введите сообщение'} value={newPostText} onChange={onNewPostTextChange} onKeyDown={handleKeyDown}/>
+      <Button type={'secondary'} onClick={onAddPost}>Добавить пост</Button>
     </div>
   )
 }

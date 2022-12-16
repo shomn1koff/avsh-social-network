@@ -2,16 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import store from "./redux/reduxState";
-import StoreContext from "./storeContext";
+import {Provider} from "./storeContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 let rerenderAllTree = (store) => {
 	root.render(
 		<React.StrictMode>
-			<StoreContext.Provider value={store}>
+			<Provider store={store}>
 				<App/>
-			</StoreContext.Provider>
+			</Provider>
 		</React.StrictMode>
 	);
 };

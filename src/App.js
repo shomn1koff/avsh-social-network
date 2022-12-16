@@ -11,7 +11,7 @@ import {
   Route,
 } from "react-router-dom";
 
-function App({store}) {
+function App() {
   
   return (
     <Router>
@@ -20,8 +20,8 @@ function App({store}) {
         <Navbar />
         <div className="app-wrapper-content">
           <Routes>
-            <Route path="/dialogs/*" element={<DialogsContainer store={store}/>} />
-            <Route path="/profile" element={<Profile store={store}/>} />
+            <Route path="/dialogs/*" element={<DialogsContainer/>} />
+            <Route path="/profile" element={<Profile/>} />
           </Routes>
         </div>
         {/* <Profile/> */}

@@ -2,18 +2,15 @@ import React from "react";
 import CreatePostFormContainer from "./CreatePostForm/CreatePostFormContainer";
 import PostList from "./PostList/PostList";
 
-const Posts = ({ store }) => {
+const Posts = () => {
 
-  let profilePage = store.getState().profilePage
-  let newPostText = profilePage.newPostText
+  // let profilePage = store.getState().profilePage
+  // let newPostText = profilePage.newPostText
 
 	return (
 		<div>
-			<CreatePostFormContainer
-				newPostText={newPostText}
-				dispatch={store.dispatch}
-			/>
-			<PostList posts={profilePage.posts} />
+			<CreatePostFormContainer/>
+			<PostList/>
 		</div>
 	);
 };

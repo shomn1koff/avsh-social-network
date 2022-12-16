@@ -5,26 +5,33 @@ import {
 	addNewMessageActionCreator,
 	updateNewMessageBodyActionCreator,
 } from "../../redux/dialogsPageReducer";
+import StoreContext from "../../storeContext";
 
-const DialogsContainer = ({ store }) => {
-	let dialogsPage = store.getState().dialogsPage;
-
-	let newMessageBody = dialogsPage.newMessageBody;
-
-	const addMessage = () => {
-		store.dispatch(addNewMessageActionCreator());
-	};
-	const updateNewMessageBody = (text) => {
-		store.dispatch(updateNewMessageBodyActionCreator(text));
-	};
-
+const DialogsContainer = () => {
 	return (
-		<Dialogs
-			dialogsPage={dialogsPage}
-			addMessage={addMessage}
-			updateNewMessageBody={updateNewMessageBody}
-            newMessageBody={newMessageBody}
-		/>
+		<StoreContext.Consumer>
+			{(store) => {
+				let dialogsPage = store.getState().dialogsPage;
+
+				let newMessageBody = dialogsPage.newMessageBody;
+
+				const addMessage = () => {
+					store.dispatch(addNewMessageActionCreator());
+				};
+				const updateNewMessageBody = (text) => {
+					store.dispatch(updateNewMessageBodyActionCreator(text));
+				};
+
+				return (
+					<Dialogs
+						dialogsPage={dialogsPage}
+						addMessage={addMessage}
+						updateNewMessageBody={updateNewMessageBody}
+						newMessageBody={newMessageBody}
+					/>
+				);
+			}}
+		</StoreContext.Consumer>
 	);
 };
 

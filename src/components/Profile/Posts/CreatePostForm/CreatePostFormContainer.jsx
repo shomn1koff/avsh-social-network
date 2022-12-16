@@ -4,26 +4,32 @@ import {
 	addNewPostActionCreator,
 	updateNewPostTextActionCreator,
 } from "../../../../redux/profilePageReducer";
+import StoreContext from "../../../../storeContext";
 import CreatePostForm from "./CreatePostForm";
 
-const CreatePostFormContainer = ({ dispatch, newPostText }) => {
-
-	const addPost = () => {
-		dispatch(addNewPostActionCreator());
-		dispatch(updateNewPostTextActionCreator(""));
-	};
-
-	const updateNewPostText = (e) => {
-		let text = e.target.value;
-		dispatch(updateNewPostTextActionCreator(text));
-	};
-
+const CreatePostFormContainer = () => {
 	return (
-		<CreatePostForm
-			addPost={addPost}
-			updateNewPostText={updateNewPostText}
-            newPostText={newPostText}
-		/>
+		<StoreContext.Consumer>
+			{(store) => {
+				const addPost = () => {
+					store.dispatch(addNewPostActionCreator());
+					store.dispatch(updateNewPostTextActionCreator(""));
+				};
+
+				const updateNewPostText = (e) => {
+					let text = e.target.value;
+					store.dispatch(updateNewPostTextActionCreator(text));
+				};
+
+				return (
+					<CreatePostForm
+						addPost={addPost}
+						updateNewPostText={updateNewPostText}
+						newPostText={store.newPostText}
+					/>
+				);
+			}}
+		</StoreContext.Consumer>
 	);
 };
 

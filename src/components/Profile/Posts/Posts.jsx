@@ -1,6 +1,7 @@
 import React from "react";
 import CreatePostFormContainer from "./CreatePostForm/CreatePostFormContainer";
 import PostList from "./PostList/PostList";
+import PostListContainer from "./PostList/PostListContainer";
 
 const Posts = () => {
 
@@ -10,7 +11,7 @@ const Posts = () => {
 	return (
 		<div>
 			<CreatePostFormContainer/>
-			<PostList/>
+			<PostListContainer/>
 		</div>
 	);
 };

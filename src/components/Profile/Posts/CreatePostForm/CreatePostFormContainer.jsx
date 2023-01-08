@@ -7,31 +7,6 @@ import {
 } from "../../../../redux/profilePageReducer";
 import CreatePostForm from "./CreatePostForm";
 
-// const CreatePostFormContainer = () => {
-// 	return (
-// 		<StoreContext.Consumer>
-// 			{(store) => {
-// 				const addPost = () => {
-// 					store.dispatch(addNewPostActionCreator());
-// 					store.dispatch(updateNewPostTextActionCreator(""));
-// 				};
-
-// 				const updateNewPostText = (e) => {
-// 					let text = e.target.value;
-// 					store.dispatch(updateNewPostTextActionCreator(text));
-// 				};
-
-// 				return (
-// 					<CreatePostForm
-// 						addPost={addPost}
-// 						updateNewPostText={updateNewPostText}
-// 						newPostText={store.getState().profilePage.newPostText}
-// 					/>
-// 				);
-// 			}}
-// 		</StoreContext.Consumer>
-// 	);
-// };
 
 let mapStateToProps = (state) => {
 	return {

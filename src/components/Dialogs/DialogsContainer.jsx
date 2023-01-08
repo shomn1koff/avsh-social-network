@@ -7,34 +7,6 @@ import {
 } from "../../redux/dialogsPageReducer";
 import { connect } from "react-redux";
 
-// const DialogsContainer = () => {
-// 	return (
-// 		<StoreContext.Consumer>
-// 			{(store) => {
-// 				let dialogsPage = store.getState().dialogsPage;
-
-// 				let newMessageBody = dialogsPage.newMessageBody;
-
-// 				const addMessage = () => {
-// 					store.dispatch(addNewMessageActionCreator());
-// 				};
-// 				const updateNewMessageBody = (text) => {
-// 					store.dispatch(updateNewMessageBodyActionCreator(text));
-// 				};
-
-// 				return (
-// 					<Dialogs
-// 						dialogsPage={dialogsPage}
-// 						addMessage={addMessage}
-// 						updateNewMessageBody={updateNewMessageBody}
-// 						newMessageBody={newMessageBody}
-// 					/>
-// 				);
-// 			}}
-// 		</StoreContext.Consumer>
-// 	);
-// };
-
 let mapStateToProps = (state) => {
     return {
         dialogsPage: state.dialogsPage,

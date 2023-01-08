@@ -10,6 +10,7 @@ const PostList = ({ posts }) => {
 			avatar={
 				"https://memepedia.ru/wp-content/uploads/2018/06/unnamed-768x768.jpg"
 			}
+      key={el.id}
 		/>
 	));
 	return <div>{postsElements}</div>;

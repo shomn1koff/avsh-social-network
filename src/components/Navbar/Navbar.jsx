@@ -11,6 +11,7 @@ const Navbar = () => {
         <li><div className={c.navLink}><NavLink to='/news' className={({isActive}) => isActive ? c.activeLink : undefined}>News</NavLink></div></li>
         <li><div className={c.navLink}><NavLink to='/music' className={({isActive}) => isActive ? c.activeLink : undefined}>Music</NavLink></div></li>
         <li><div className={c.navLink}><NavLink to='/settings' className={({isActive}) => isActive ? c.activeLink : undefined}>Settings</NavLink></div></li>
+        <li><div className={c.navLink}><NavLink to='/users' className={({isActive}) => isActive ? c.activeLink : undefined}>Users</NavLink></div></li>
 
       </ul>
      </div>

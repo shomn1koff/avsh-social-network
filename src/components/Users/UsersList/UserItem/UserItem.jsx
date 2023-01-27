@@ -3,31 +3,27 @@ import Button from "../../../UI/Button/Button";
 import c from "./UserItem.module.scss";
 
 const UserItem = ({
-    userID,
-	avatarImage,
-    userName,
-	status,
-	followed,
-	country,
-	city,
+    name,
+    id,
+    status,
+    followed,
     follow,
     unfollow,
-	...props
+    ...props
 }) => {
 	//{ id: 1, avatarImage: '', status: '', followed: false, country: 'Russia', city: 'Podolsk' },
 
     const fl = () => {
-        follow(userID)
+        follow(id)
     }
     const unfl = () => {
-        
-        unfollow(userID)
+        unfollow(id)
     }
 
 	return (
 		<div className={c.userWrapper}>
 			<div className={c.userInfo}>
-				<img src={avatarImage} alt="avatar" />
+				<img src={props.photos.small} alt="avatar" />
                 {
                     followed ? 
                     <Button type={'secondary'} onClick={unfl} fit={'fitcontent'}>Отписаться</Button> 
@@ -36,10 +32,12 @@ const UserItem = ({
 			</div>
             <div className={c.userDescription}>
                 <div className={c.nameAndStatus}>
-                    <div>{userName}</div>
+                    <div>{name}</div>
                     <div>{status}</div>
                 </div>
-                <div className={c.userLocation}><span>{country}</span>, <span>{city}</span></div>
+                <div className={c.userLocation}>
+                    ieieie
+                </div>
             </div>
 		</div>
 	);

@@ -3,36 +3,54 @@ import Button from "../../../UI/Button/Button";
 import c from "./UserItem.module.scss";
 
 class UserItemC extends React.Component {
+	fl = () => {
+		this.props.follow(this.props.id);
+	};
 
-    fl = () => {
-        this.props.follow(this.props.userID)
-    }
+	unfl = () => {
+		this.props.unfollow(this.props.id);
+	};
 
-    unfl = () => {
-        this.props.unfollow(this.props.userID)
-    }
-
-    render() {
-        return (
-            <div className={c.userWrapper}>
-                <div className={c.userInfo}>
-                    <img src={this.props.avatarImage} alt="avatar" />
-                    {
-                        this.props.followed ? 
-                        <Button type={'secondary'} onClick={() => this.props.unfollow(this.props.userID)} fit={'fitcontent'}>Отписаться</Button> 
-                        : <Button type={'primary'} onClick={() => this.props.follow(this.props.userID)} fit={'fitcontent'}>Подписаться</Button>
-                    }
-                </div>
-                <div className={c.userDescription}>
-                    <div className={c.nameAndStatus}>
-                        <div>{this.props.userName}</div>
-                        <div>{this.props.status}</div>
-                    </div>
-                    <div className={c.userLocation}><span>{this.props.country}</span>, <span>{this.props.city}</span></div>
-                </div>
-            </div>
-        );
-    }
+	render() {
+		return (
+			<div className={c.userWrapper}>
+				<div className={c.userInfo}>
+					<img
+						src={
+							this.props.photos.large
+								? this.props.photos.large
+								: "https://sun1-25.userapi.com/impg/2ftoZ_gXsOiqrGRoDrmuixDQZlJiuek3mONHCA/w3_sx9Ol8nM.jpg?size=1619x2160&quality=95&sign=93f4cc785d2f7c4b8123b04a561d43b5&type=album"
+						}
+						alt="avatar"
+					/>
+					{this.props.followed ? (
+						<Button
+							type={"secondary"}
+							onClick={() => this.props.unfollow(this.props.id)}
+							fit={"fitcontent"}
+						>
+							Отписаться
+						</Button>
+					) : (
+						<Button
+							type={"primary"}
+							onClick={() => this.props.follow(this.props.id)}
+							fit={"fitcontent"}
+						>
+							Подписаться
+						</Button>
+					)}
+				</div>
+				<div className={c.userDescription}>
+					<div className={c.nameAndStatus}>
+						<div>{this.props.name}</div>
+						<div>{this.props.status}</div>
+					</div>
+					<div className={c.userLocation}>SAMPLE TEXT</div>
+				</div>
+			</div>
+		);
+	}
 }
 
-export default UserItemC
+export default UserItemC;

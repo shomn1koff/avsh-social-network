@@ -2,46 +2,55 @@ import React from "react";
 import Button from "../../../UI/Button/Button";
 import c from "./UserItem.module.scss";
 
-const UserItem = ({
-    name,
-    id,
-    status,
-    followed,
-    follow,
-    unfollow,
-    ...props
-}) => {
-	//{ id: 1, avatarImage: '', status: '', followed: false, country: 'Russia', city: 'Podolsk' },
+class UserItem extends React.Component {
+	fl = () => {
+		this.props.follow(this.props.id);
+	};
 
-    const fl = () => {
-        follow(id)
-    }
-    const unfl = () => {
-        unfollow(id)
-    }
+	unfl = () => {
+		this.props.unfollow(this.props.id);
+	};
 
-	return (
-		<div className={c.userWrapper}>
-			<div className={c.userInfo}>
-				<img src={props.photos.small} alt="avatar" />
-                {
-                    followed ? 
-                    <Button type={'secondary'} onClick={unfl} fit={'fitcontent'}>Отписаться</Button> 
-                    : <Button type={'primary'} onClick={fl} fit={'fitcontent'}>Подписаться</Button>
-                }
+	render() {
+		return (
+			<div className={c.userWrapper}>
+				<div className={c.userInfo}>
+					<img
+						src={
+							this.props.photos.large
+								? this.props.photos.large
+								: "https://sun1-25.userapi.com/impg/2ftoZ_gXsOiqrGRoDrmuixDQZlJiuek3mONHCA/w3_sx9Ol8nM.jpg?size=1619x2160&quality=95&sign=93f4cc785d2f7c4b8123b04a561d43b5&type=album"
+						}
+						alt="avatar"
+					/>
+					{this.props.followed ? (
+						<Button
+							type={"secondary"}
+							onClick={() => this.props.unfollow(this.props.id)}
+							fit={"fitcontent"}
+						>
+							Отписаться
+						</Button>
+					) : (
+						<Button
+							type={"primary"}
+							onClick={() => this.props.follow(this.props.id)}
+							fit={"fitcontent"}
+						>
+							Подписаться
+						</Button>
+					)}
+				</div>
+				<div className={c.userDescription}>
+					<div className={c.nameAndStatus}>
+						<div>{this.props.name}</div>
+						<div>{this.props.status}</div>
+					</div>
+					<div className={c.userLocation}>SAMPLE TEXT</div>
+				</div>
 			</div>
-            <div className={c.userDescription}>
-                <div className={c.nameAndStatus}>
-                    <div>{name}</div>
-                    <div>{status}</div>
-                </div>
-                <div className={c.userLocation}>
-                    ieieie
-                </div>
-            </div>
-		</div>
-	);
-};
+		);
+	}
+}
 
 export default UserItem;
-

@@ -3,7 +3,7 @@ import DialogsContainer from './components/Dialogs/DialogsContainer';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
-import Users from './components/Users/Users';
+import UsersPage from './components/Users/UsersPage';
 
 import {
   BrowserRouter as Router,
@@ -23,7 +23,7 @@ function App() {
           <Routes>
             <Route path="/dialogs/*" element={<DialogsContainer/>} />
             <Route path="/profile" element={<Profile/>} />
-            <Route path="/users" element={<Users/>} />
+            <Route path="/users" element={<UsersPage/>} />
           </Routes>
         </div>
         {/* <Profile/> */}

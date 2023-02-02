@@ -1,20 +1,20 @@
 import { connect } from "react-redux";
 import {
-	followAC,
-	unfollowAC,
-	setUsersAC,
-	setCurrentPageAC,
-	setTotalUsersCountAC,
-    toggleIsFetchingAC
+	follow,
+	unfollow,
+	setUsers,
+	setCurrentPage,
+	setTotalUsersCount,
+    toggleIsFetching
 } from "../../../redux/usersPageReducer";
 //import UserList from "./UserList";
 import preloader from '../../../assets/images/preloader.svg'
 
 import React from "react";
 import axios from "axios";
-import UserItem from "./UserItem/UserItem";
-import Button from "../../UI/Button/Button";
-import c from "./UserList.module.scss";
+// import UserItem from "./UserItem/UserItem";
+// import Button from "../../UI/Button/Button";
+// import c from "./UserList.module.scss";
 import Users from "./Users";
 
 class UserListAPIContainer extends React.Component {
@@ -82,31 +82,31 @@ const mapStateToProps = (state) => {
 	};
 };
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		setUsers: (users) => {
-			dispatch(setUsersAC(users));
-		},
-		follow: (userID) => {
-			dispatch(followAC(userID));
-		},
-		unfollow: (userID) => {
-			dispatch(unfollowAC(userID));
-		},
-		setCurrentPage: (page) => {
-			dispatch(setCurrentPageAC(page));
-		},
-		setTotalUsersCount: (totalUsersCount) => {
-			dispatch(setTotalUsersCountAC(totalUsersCount));
-		},
-        toggleIsFetching: (isFetching) => {
-            dispatch(toggleIsFetchingAC(isFetching))
-        }
-	};
-};
+// const mapDispatchToProps = (dispatch) => {
+// 	return {
+// 		setUsers: (users) => {
+// 			dispatch(setUsersAC(users));
+// 		},
+// 		follow: (userID) => {
+// 			dispatch(followAC(userID));
+// 		},
+// 		unfollow: (userID) => {
+// 			dispatch(unfollowAC(userID));
+// 		},
+// 		setCurrentPage: (page) => {
+// 			dispatch(setCurrentPageAC(page));
+// 		},
+// 		setTotalUsersCount: (totalUsersCount) => {
+// 			dispatch(setTotalUsersCountAC(totalUsersCount));
+// 		},
+//         toggleIsFetching: (isFetching) => {
+//             dispatch(toggleIsFetchingAC(isFetching))
+//         }
+// 	};
+// };
 
 const UserListContainer = connect(
 	mapStateToProps,
-	mapDispatchToProps
+	{setUsers, follow, unfollow, setCurrentPage, setTotalUsersCount, toggleIsFetching}
 )(UserListAPIContainer);
 export default UserListContainer;

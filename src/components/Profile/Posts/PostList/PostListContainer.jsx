@@ -9,7 +9,11 @@ let mapStateToProps = (state) => {
 }
 
 let mapDispatchToProps = (dispatch) => {
-
+  return {
+    iHateNiggers: (hateNiggers) => {
+      console.log(hateNiggers)
+    }
+  }
 }
 
 const PostListContainer = connect(mapStateToProps, mapDispatchToProps)(PostList)

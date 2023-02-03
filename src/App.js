@@ -11,6 +11,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import ProfileContainer from './components/Profile/ProfileContainer';
 
 function App() {
   
@@ -22,7 +23,7 @@ function App() {
         <div className="app-wrapper-content">
           <Routes>
             <Route path="/dialogs/*" element={<DialogsContainer/>} />
-            <Route path="/profile" element={<Profile/>} />
+            <Route path="/profile/*" element={<ProfileContainer/>} />
             <Route path="/users" element={<UsersPage/>} />
           </Routes>
         </div>

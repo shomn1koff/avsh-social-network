@@ -16,6 +16,7 @@ import axios from "axios";
 // import Button from "../../UI/Button/Button";
 // import c from "./UserList.module.scss";
 import Users from "./Users";
+import Preloader from "../../UI/Preloader/Preloader";
 
 class UserListAPIContainer extends React.Component {
 	componentDidMount() {
@@ -54,9 +55,7 @@ class UserListAPIContainer extends React.Component {
 		return (
 			<>
             {this.props.isFetching ? 
-            <div>
-                <img src={preloader} alt="dd" />
-            </div>
+            <Preloader/>
             : null}
 				<Users
 					totalUsersCount={this.props.totalUsersCount}

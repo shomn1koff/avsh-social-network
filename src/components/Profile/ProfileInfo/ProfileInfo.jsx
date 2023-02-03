@@ -1,13 +1,20 @@
 import React from 'react'
+import Preloader from '../../UI/Preloader/Preloader'
 import c from './ProfileInfo.module.scss'
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
+  if (!props.profile) {
+    return (
+      <Preloader/>
+    )
+  }
+
   return (
     <div>
       <div className={c.profile}>
         <img
           className={c.avatar}
-          src="https://twitchpedia.ru/wp-content/uploads/2021/05/glad-valakas-2.jpg"
+          src={props.profile.photos.large}
           alt="ava"
         />
         <div className={c.nameAndDescription}>

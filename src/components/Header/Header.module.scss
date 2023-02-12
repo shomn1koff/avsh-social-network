@@ -12,12 +12,23 @@ $color5: #fff3ff;
     grid-area: header;
     padding: 8px;
 
+    display: flex;
+    justify-content: space-between;
+
     h1 {
         font-family: 'Roboto';
         font-weight: 100;
         color: #fff;
-        margin: 0;
         padding: 0;
-        margin-left: 8px;
+        margin: 0 0 0 8px;
+    }
+
+    a {
+        font-family: 'Roboto';
+        font-weight: 100;
+        color: #fff;
+        padding: 0;
+        margin: 0 0 0 8px;
+        text-decoration: none;
     }
 }

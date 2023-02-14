@@ -33,9 +33,15 @@ class UserItem extends React.Component {
 							type={"secondary"}
 							onClick={() => {
 								axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${this.props.id}`, {
-									withCredentials: true
+									withCredentials: true,
+									headers: {
+										"API-KEY": "3f87fb6e-94cc-4916-a953-0b6cf7e934ed"
+									}
+								}).then(response => {
+									if (response.data.resultCode === 0) {
+										this.props.unfollow(this.props.id)
+									}
 								})
-								this.props.unfollow(this.props.id)
 							}}
 							fit={"fitcontent"}
 						>
@@ -46,9 +52,15 @@ class UserItem extends React.Component {
 							type={"primary"}
 							onClick={() => {
 								axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${this.props.id}`, {}, {
-									withCredentials: true
+									withCredentials: true,
+									headers: {
+										"API-KEY": "3f87fb6e-94cc-4916-a953-0b6cf7e934ed"
+									}
+								}).then(response => {
+									if (response.data.resultCode === 0) {
+										this.props.follow(this.props.id)
+									}
 								})
-								this.props.follow(this.props.id)
 							}}
 							fit={"fitcontent"}
 						>

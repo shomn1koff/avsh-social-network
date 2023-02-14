@@ -40,7 +40,7 @@ class UserListAPIContainer extends React.Component {
 	onPageChanged = (pageNumber) => {
         this.props.toggleIsFetching(true)
 		this.props.setCurrentPage(pageNumber);
-		console.log(this.props.currentPage);
+		//console.log(this.props.currentPage);
 		axios
 			.get(
 				`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`,
@@ -49,8 +49,7 @@ class UserListAPIContainer extends React.Component {
 				}
 			)
 			.then((response) => {
-				console.log(response);
-				//console.log()
+				//console.log(response);
                 this.props.toggleIsFetching(false)
 				this.props.setTotalUsersCount(response.data.totalCount);
 				this.props.setUsers(response.data.items);

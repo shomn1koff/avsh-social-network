@@ -23,7 +23,10 @@ class UserListAPIContainer extends React.Component {
         this.props.toggleIsFetching(true)
 		axios
 			.get(
-				`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
+				`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,
+				{
+					withCredentials: true
+				}
 			)
 			.then((response) => {
 				console.log(response);
@@ -40,7 +43,10 @@ class UserListAPIContainer extends React.Component {
 		console.log(this.props.currentPage);
 		axios
 			.get(
-				`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
+				`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`,
+				{
+					withCredentials: true
+				}
 			)
 			.then((response) => {
 				console.log(response);

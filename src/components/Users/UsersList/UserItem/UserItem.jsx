@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../../../UI/Button/Button";
 import c from "./UserItem.module.scss";
 import {NavLink} from 'react-router-dom'
+import axios from "axios";
 
 
 class UserItem extends React.Component {
@@ -30,7 +31,12 @@ class UserItem extends React.Component {
 					{this.props.followed ? (
 						<Button
 							type={"secondary"}
-							onClick={() => this.props.unfollow(this.props.id)}
+							onClick={() => {
+								axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${this.props.id}`, {
+									withCredentials: true
+								})
+								this.props.unfollow(this.props.id)
+							}}
 							fit={"fitcontent"}
 						>
 							Отписаться
@@ -38,7 +44,12 @@ class UserItem extends React.Component {
 					) : (
 						<Button
 							type={"primary"}
-							onClick={() => this.props.follow(this.props.id)}
+							onClick={() => {
+								axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${this.props.id}`, {}, {
+									withCredentials: true
+								})
+								this.props.follow(this.props.id)
+							}}
 							fit={"fitcontent"}
 						>
 							Подписаться

@@ -5,7 +5,7 @@ import {
     setUsers,
     setCurrentPage,
     setTotalUsersCount,
-    toggleIsFetching
+    toggleIsFetching, toggleIsFollowing
 } from "../../../redux/usersPageReducer";
 //import UserList from "./UserList";
 import preloader from '../../../assets/images/preloader.svg'
@@ -56,6 +56,8 @@ class UserListAPIContainer extends React.Component {
                     users={this.props.users}
                     follow={this.props.follow}
                     unfollow={this.props.unfollow}
+                    isFollowing={this.props.isFollowing}
+                    toggleIsFollowing={this.props.toggleIsFollowing}
                 />
             </>
         );
@@ -68,7 +70,8 @@ const mapStateToProps = (state) => {
         totalUsersCount: state.usersPage.totalUsersCount,
         pageSize: state.usersPage.pageSize,
         currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
+        isFetching: state.usersPage.isFetching,
+        isFollowing: state.usersPage.isFollowing,
     };
 };
 
@@ -97,6 +100,6 @@ const mapStateToProps = (state) => {
 
 const UserListContainer = connect(
     mapStateToProps,
-    {setUsers, follow, unfollow, setCurrentPage, setTotalUsersCount, toggleIsFetching}
+    {setUsers, follow, unfollow, setCurrentPage, setTotalUsersCount, toggleIsFetching, toggleIsFollowing}
 )(UserListAPIContainer);
 export default UserListContainer;

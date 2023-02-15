@@ -38,6 +38,8 @@ const Users = (props) => {
 				followed={u.followed}
 				follow={props.follow}
 				unfollow={props.unfollow}
+				isFollowing={props.isFollowing}
+				toggleIsFollowing={props.toggleIsFollowing}
 				key={u.id}
 			/>
 		);

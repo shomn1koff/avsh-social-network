@@ -11,6 +11,11 @@
   font-weight: lighter;
   font-size: 18px;
   line-height: 21px;
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 }
 
 .primary {
@@ -22,6 +27,7 @@
     background-color: #0c539b;
     cursor: pointer;
   }
+
 }
 
 .secondary {

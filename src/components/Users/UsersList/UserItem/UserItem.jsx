@@ -2,18 +2,10 @@ import React from "react";
 import Button from "../../../UI/Button/Button";
 import c from "./UserItem.module.scss";
 import {NavLink} from 'react-router-dom'
-import axios from "axios";
+
 
 
 class UserItem extends React.Component {
-    fl = () => {
-        this.props.follow(this.props.id);
-    };
-
-    unfl = () => {
-        this.props.unfollow(this.props.id);
-    };
-
     render() {
         return (
             <div className={c.userWrapper}>
@@ -32,30 +24,9 @@ class UserItem extends React.Component {
                         type={this.props.followed ? 'secondary' : 'primary'}
                         disabled={this.props.isFollowing.some(id => id === this.props.id)}
                         onClick={() => {
-                            this.props.toggleIsFollowing(true, this.props.id)
                             this.props.followed
-                                ? axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${this.props.id}`, {
-                                    withCredentials: true,
-                                    headers: {
-                                        "API-KEY": "3f87fb6e-94cc-4916-a953-0b6cf7e934ed"
-                                    }
-                                }).then(response => {
-                                    if (response.data.resultCode === 0) {
-                                        this.props.unfollow(this.props.id)
-                                    }
-                                    this.props.toggleIsFollowing(false, this.props.id)
-                                })
-                                : axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${this.props.id}`, {}, {
-                                    withCredentials: true,
-                                    headers: {
-                                        "API-KEY": "3f87fb6e-94cc-4916-a953-0b6cf7e934ed"
-                                    }
-                                }).then(response => {
-                                    if (response.data.resultCode === 0) {
-                                        this.props.follow(this.props.id)
-                                    }
-                                    this.props.toggleIsFollowing(false, this.props.id)
-                                })
+                                ? this.props.unfollow(this.props.id)
+                                : this.props.follow(this.props.id)
                         }}
                         fit={"fitcontent"}
                     >

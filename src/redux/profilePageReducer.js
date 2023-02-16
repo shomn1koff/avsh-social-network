@@ -1,3 +1,6 @@
+import axios from "axios";
+import {usersAPI} from "../api/api";
+
 let initialState = {
 	posts: [
 		{ id: 1, message: "asidfasd", likesCount: 12 },
@@ -47,4 +50,17 @@ export const updateNewPostTextActionCreator = (text) => ({
 	type: UPDATE_NEW_POST_TEXT,
 	text: text,
 });
-export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
+
+export const acceptUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
+
+export const setUserProfile = (userID) => {
+	return (dispatch) => {
+		if (!userID) {
+			userID = 2
+		}
+		usersAPI.getUserProfile(userID)
+			.then((response) => {
+				dispatch(acceptUserProfile(response.data))
+			});
+	}
+}

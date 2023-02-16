@@ -36,10 +36,9 @@ const Users = (props) => {
 				photos={u.photos}
 				status={u.status}
 				followed={u.followed}
+				isFollowing={props.isFollowing}
 				follow={props.follow}
 				unfollow={props.unfollow}
-				isFollowing={props.isFollowing}
-				toggleIsFollowing={props.toggleIsFollowing}
 				key={u.id}
 			/>
 		);

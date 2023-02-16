@@ -7,12 +7,12 @@ import Message from './Message/Message'
 
 
 
-const Dialogs = ({dialogsPage, addMessage, updateNewMessageBody, newMessageBody}) => {
+const Dialogs = ({dialogsPage, addNewMessage, updateNewMessageBody, newMessageBody}) => {
   const dialogElements = dialogsPage.dialogs.map((dialog => <DialogItem id={dialog.id} name={dialog.name} key={dialog.id}/>))
   const messageElements = dialogsPage.messages.map((msg) => <Message senderName={msg.senderName} message={msg.message} key={msg.id}/>)
 
   let onAddMessage = () => {
-    addMessage()
+    addNewMessage()
   }
 
   const onNewMessageChange = (e) => {

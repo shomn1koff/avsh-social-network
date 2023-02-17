@@ -51,16 +51,13 @@ export const updateNewPostTextActionCreator = (text) => ({
 	text: text,
 });
 
-export const acceptUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
+export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 
-export const setUserProfile = (userID) => {
+export const getUserProfile = (userID) => {
 	return (dispatch) => {
-		if (!userID) {
-			userID = 2
-		}
 		usersAPI.getUserProfile(userID)
 			.then((response) => {
-				dispatch(acceptUserProfile(response.data))
+				dispatch(setUserProfile(response.data))
 			});
 	}
 }

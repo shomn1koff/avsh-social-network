@@ -4,10 +4,11 @@ import Input from '../UI/Input/Input'
 import DialogItem from './DialogItem/DialogItem'
 import c from './Dialogs.module.scss'
 import Message from './Message/Message'
+import { Navigate } from 'react-router-dom'
 
 
 
-const Dialogs = ({dialogsPage, addNewMessage, updateNewMessageBody, newMessageBody}) => {
+const Dialogs = ({dialogsPage, addNewMessage, updateNewMessageBody, newMessageBody, ...props}) => {
   const dialogElements = dialogsPage.dialogs.map((dialog => <DialogItem id={dialog.id} name={dialog.name} key={dialog.id}/>))
   const messageElements = dialogsPage.messages.map((msg) => <Message senderName={msg.senderName} message={msg.message} key={msg.id}/>)
 
@@ -19,7 +20,6 @@ const Dialogs = ({dialogsPage, addNewMessage, updateNewMessageBody, newMessageBo
     let text = e.target.value
     updateNewMessageBody(text)
   }
-
 
   return (
     <div className={c.dialogsWrapper}>

@@ -2,6 +2,7 @@ import './App.scss';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import Navbar from './components/Navbar/Navbar';
 import UsersPage from './components/Users/UsersPage';
+import LoginPage from './components/Login/Login'
 
 import {            
   BrowserRouter as Router,
@@ -25,6 +26,7 @@ function App() {
             <Route path="/profile/*" element={<ProfileContainer/>} />
             <Route path="/profile/:userId" element={<ProfileContainer/>} />
             <Route path="/users" element={<UsersPage/>} />
+            <Route path="/login" element={<LoginPage/>} />
           </Routes>
         </div>
         {/* <Profile/> */}

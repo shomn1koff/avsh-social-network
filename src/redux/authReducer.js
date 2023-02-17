@@ -1,5 +1,4 @@
-import axios from "axios";
-import {usersAPI} from "../api/api";
+import {authAPI} from "../api/api";
 
 let initialState = {
     userID: null,
@@ -31,7 +30,7 @@ export const setAuthUserData = (userID, email, login) => ({type: SET_USER_DATA, 
 
 export const checkAuthorization = () => {
     return (dispatch) => {
-        usersAPI.checkAuthorization()
+        authAPI.me()
             .then((response) => {
                 if (response.data.resultCode === 0) {
                     let { id, email, login } = response.data.data

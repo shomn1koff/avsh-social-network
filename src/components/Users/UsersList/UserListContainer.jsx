@@ -8,6 +8,7 @@ import React from "react";
 
 import Users from "./Users";
 import Preloader from "../../UI/Preloader/Preloader";
+import withAuthRedirect from "../../../hoc/withAuthRedirect";
 
 class UserListAPIContainer extends React.Component {
     componentDidMount() {
@@ -74,11 +75,11 @@ const mapStateToProps = (state) => {
 // 	};
 // };
 
-const UserListContainer = connect(
+const UserListContainer = withAuthRedirect(connect(
     mapStateToProps,
     {
         setCurrentPage,
         getUsers, follow, unfollow
     }
-)(UserListAPIContainer);
+)(UserListAPIContainer));
 export default UserListContainer;

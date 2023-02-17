@@ -9,6 +9,7 @@ import React from "react";
 import Users from "./Users";
 import Preloader from "../../UI/Preloader/Preloader";
 import withAuthRedirect from "../../../hoc/withAuthRedirect";
+import {compose} from "redux";
 
 class UserListAPIContainer extends React.Component {
     componentDidMount() {
@@ -75,11 +76,14 @@ const mapStateToProps = (state) => {
 // 	};
 // };
 
-const UserListContainer = withAuthRedirect(connect(
-    mapStateToProps,
-    {
-        setCurrentPage,
-        getUsers, follow, unfollow
-    }
-)(UserListAPIContainer));
-export default UserListContainer;
+
+export default compose(
+    withAuthRedirect,
+    connect(
+        mapStateToProps,
+        {
+            setCurrentPage,
+            getUsers, follow, unfollow
+        }
+    ),
+)(UserListAPIContainer)

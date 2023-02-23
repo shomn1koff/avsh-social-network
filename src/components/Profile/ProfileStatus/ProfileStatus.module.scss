@@ -1,0 +1,19 @@
+.status_wrapper {
+  margin-top: 16px;
+  width: 400px;
+}
+
+.status {
+  box-sizing: border-box;
+
+  padding: 8px 16px;
+  background-color: white;
+
+  outline: none;
+
+  border: 1px solid #1b2b65;
+  border-radius: 8px;
+
+  font-weight: lighter;
+  font-size: 18px;
+}

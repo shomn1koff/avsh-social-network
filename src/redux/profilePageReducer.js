@@ -1,5 +1,5 @@
 import axios from "axios";
-import {usersAPI} from "../api/api";
+import {usersAPI, profileAPI} from "../api/api";
 
 let initialState = {
 	posts: [
@@ -10,7 +10,8 @@ let initialState = {
 		{ id: 5, message: "asidfddasd", likesCount: 12 },
 	],
 	newPostText: "fffffffff",
-	profile: null
+	profile: null,
+	status: ""
 };
 
 export const profilePageReducer = (state = initialState, action) => {
@@ -36,6 +37,16 @@ export const profilePageReducer = (state = initialState, action) => {
 				...state, profile: action.profile
 			}
 		}
+		case SET_USER_PROFILE_STATUS: {
+			return {
+				...state, status: action.status
+			}
+		}
+		case UPDATE_USER_PROFILE_STATUS: {
+			return {
+				...state, status: action.status
+			}
+		}
 		default:
 			return state;
 	}
@@ -44,6 +55,8 @@ export const profilePageReducer = (state = initialState, action) => {
 const ADD_NEW_POST = "ADD-NEW-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE"
+const SET_USER_PROFILE_STATUS = "SET_USER_PROFILE_STATUS"
+const UPDATE_USER_PROFILE_STATUS = "UPDATE_USER_PROFILE_STATUS"
 
 export const addNewPostActionCreator = () => ({ type: ADD_NEW_POST });
 export const updateNewPostTextActionCreator = (text) => ({
@@ -53,11 +66,31 @@ export const updateNewPostTextActionCreator = (text) => ({
 
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 
+export const setUserProfileStatus = (status) => ({type: SET_USER_PROFILE_STATUS, status})
+
+
 export const getUserProfile = (userID) => {
 	return (dispatch) => {
 		usersAPI.getUserProfile(userID)
 			.then((response) => {
 				dispatch(setUserProfile(response.data))
 			});
+	}
+}
+
+export const getUserProfileStatus = (userID) => (dispatch) => {
+	profileAPI.getUserProfileStatus(userID).then(response => {
+		dispatch(setUserProfileStatus(response.data))
+	})
+}
+
+export const updateUserProfileStatus = (status) => {
+	return (dispatch) => {
+		profileAPI.updateUserProfileStatus(status).then(response => {
+			console.log(response)
+			if (response.data.resultCode === 0) {
+				dispatch(setUserProfileStatus(status))
+			}
+		})
 	}
 }

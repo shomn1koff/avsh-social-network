@@ -19,7 +19,8 @@ export const usersAPI = {
             })
     },
     getUserProfile(userID) {
-        return instance.get(`profile/${userID}`)
+        console.warn('use profileAPI instead usersAPI')
+        return profileAPI.getUserProfile(userID)
     },
     follow(userID) {
         return instance.post(`follow/${userID}`)
@@ -27,6 +28,18 @@ export const usersAPI = {
     unfollow(userID) {
         return instance.delete(`follow/${userID}`)
     },
+}
+
+export const profileAPI = {
+    getUserProfile(userID) {
+        return instance.get(`profile/${userID}`)
+    },
+    getUserProfileStatus(userID) {
+        return instance.get(`profile/status/${userID}`)
+    },
+    updateUserProfileStatus(status) {
+        return instance.put(`profile/status`, {status})
+    }
 }
 
 export const authAPI = {

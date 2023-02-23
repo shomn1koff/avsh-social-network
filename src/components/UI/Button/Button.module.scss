@@ -4,13 +4,13 @@
   border: 0;
   width: fit-content;
   padding: 8px 16px;
-  border-radius: 6px;
 
-  font-family: 'Roboto';
   font-style: normal;
   font-weight: lighter;
   font-size: 18px;
   line-height: 21px;
+
+  white-space: nowrap;
 
   &:disabled {
     opacity: 0.5;

@@ -9,4 +9,16 @@ const Input = ({placeholder, state, onBlur ,reference, value, onChange, onKeyDow
   )
 }
 
+export const MyInput = ({state, reference, input, meta, ...props}) => {
+
+    const hasError = meta.touched && meta.error
+
+    return (
+        <div className={c.input}>
+            <input {...input} {...props}  className={`${c.control} ${c[state]} ` + (hasError ? c.invalid : '')} ref={reference}/>
+            <span>{meta.error}</span>
+        </div>
+    )
+}
+
 export default Input

@@ -9,6 +9,17 @@ class ProfileStatus extends Component {
         editMode: false
     }
 
+    componentDidMount() {
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.status !== this.props.status) {
+            this.setState({
+                status: this.props.status
+            })
+        }
+    }
+
     activateEditMode = () => {
         this.setState({
             editMode: true,
@@ -30,7 +41,7 @@ class ProfileStatus extends Component {
     }
 
     render() {
-        console.log(this.state)
+        //console.log('rendered')
         return (
             <div className={c.status_wrapper}>
                 {!this.state.editMode && <div className={c.status} onClick={this.activateEditMode} >Статус: {this.props.status}</div>}

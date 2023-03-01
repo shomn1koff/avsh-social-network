@@ -13,7 +13,6 @@ let initialState = {
 		{ id: 4, senderName: "Kek", message: "aiosudhf" },
 		{ id: 5, senderName: "Cheburek", message: "sdf" },
 	],
-	newMessageBody: "msgBody",
 };
 
 export const dialogsPageReducer = (state = initialState, action) => {
@@ -22,19 +21,11 @@ export const dialogsPageReducer = (state = initialState, action) => {
 			let newMessage = {
 				id: state.messages.length + 1,
 				senderName: "John Dhow",
-				message: state.newMessageBody,
+				message: action.message,
 			};
 			return {
 				...state,
 				messages: [...state.messages, newMessage],
-				newMessageBody: "",
-			};
-		}
-
-		case UPDATE_NEW_MESSAGE_BODY: {
-			return {
-				...state,
-				newMessageBody: action.text,
 			};
 		}
 
@@ -44,10 +35,5 @@ export const dialogsPageReducer = (state = initialState, action) => {
 };
 
 const ADD_NEW_MESSAGE = "ADD-NEW-MESSAGE";
-const UPDATE_NEW_MESSAGE_BODY = "UPDATE-NEW-MESSAGE-BODY";
 
-export const addNewMessage = () => ({ type: ADD_NEW_MESSAGE });
-export const updateNewMessageBody = (text) => ({
-	type: UPDATE_NEW_MESSAGE_BODY,
-	text: text,
-});
+export const addNewMessage = (message) => ({ type: ADD_NEW_MESSAGE, message });

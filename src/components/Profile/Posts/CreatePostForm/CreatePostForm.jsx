@@ -2,31 +2,36 @@ import React from 'react'
 import Input from '../../../UI/Input/Input'
 import Button from '../../../UI/Button/Button'
 import c from './CreatePostForm.module.scss'
+import {Field, reduxForm} from "redux-form";
+import buttonStyles from "../../../UI/Button/Button.module.scss";
 
 
-const CreatePostForm = ({newPostText, addPost, updateNewPostText}) => {
-  
+const PostForm = (props) => {
+  return <form className={c.formWrapper} onSubmit={props.handleSubmit}>
+    <div>
+      <Field name={"postText"}
+             type={"text"}
+             state={"success"}
+             placeholder={"Введите сообщение"}
+             fit={'fitcontent'}
+             component={Input}/>
+    </div>
+    <button className={buttonStyles.button + " " + buttonStyles["secondary"] + " " + buttonStyles["fitcontent"]}>Добавить пост
+    </button>
+  </form>;
+}
 
-  const onAddPost = () => {
-    addPost()
-  }
+const ReduxPostForm = reduxForm({form: 'postForm'})(PostForm)
 
-  let onNewPostTextChange = (e) => {
-    updateNewPostText(e)
-  }
+const CreatePostForm = (props) => {
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      console.log('do validate')
-      addPost()
-    }
+  const onAddPost = (formData) => {
+    console.log(formData)
+    props.addPost(formData.postText)
   }
 
   return (
-    <div className={c.formWrapper}>
-      <Input type="text" state={'success'} placeholder={'Введите сообщение'} value={newPostText} onChange={onNewPostTextChange} onKeyDown={handleKeyDown}/>
-      <Button type={'secondary'} onClick={onAddPost}>Добавить пост</Button>
-    </div>
+    <ReduxPostForm onSubmit={onAddPost}/>
   )
 }
 

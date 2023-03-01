@@ -10,26 +10,21 @@ import CreatePostForm from "./CreatePostForm";
 
 let mapStateToProps = (state) => {
 	return {
-		newPostText: state.profilePage.newPostText,
-	};
+		newPostText: state.profilePage.newPostText
+	}
 };
 
 let mapDispatchToProps = (dispatch) => {
 	return {
-		addPost: () => {
-			dispatch(addNewPostActionCreator());
-			dispatch(updateNewPostTextActionCreator(""));
+		addPost: (postText) => {
+			dispatch(addNewPostActionCreator(postText));
 		},
-		updateNewPostText: (e) => {
-			let text = e.target.value;
-			dispatch(updateNewPostTextActionCreator(text));
-		},
+		handleSubmit: (formData) => {
+			console.log(formData)
+		}
 	};
 };
-
-const CreatePostFormContainer = connect(
+export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(CreatePostForm);
-
-export default CreatePostFormContainer;
+)(CreatePostForm);;

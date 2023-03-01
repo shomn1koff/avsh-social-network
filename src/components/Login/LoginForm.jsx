@@ -1,6 +1,6 @@
 import React from 'react';
 import {Field, reduxForm} from "redux-form";
-import Input, {MyInput} from "../UI/Input/Input";
+import Input from "../UI/Input/Input";
 import {maxLengthCreator, required} from "../../utils/validators";
 import c from './LoginForm.module.scss'
 import buttonStyles from '../UI/Button/Button.module.scss'
@@ -20,14 +20,14 @@ const LoginForm = (props) => {
                            name={'login'}
                            type={'input'}
                            validate={[required, maxLength20]}
-                           component={MyInput}/>
+                           component={Input}/>
                 </div>
                 <div className={c.inputWrapper}>
                     <Field placeholder={'Enter Password'}
                            name={'password'}
                            type={'input'}
                            validate={[required, maxLength20]}
-                           component={MyInput}/>
+                           component={Input}/>
                 </div>
             </div>
             <div className={c.checkboxAndButtonWrapper}>

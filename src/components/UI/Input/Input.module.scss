@@ -1,39 +1,73 @@
 .input {
     position: relative;
-    display: inline-block;
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
 }
 
-.control {
-    width: 100%;
-    height: 100%;
+.input__control {
     box-sizing: border-box;
+    width: 100%;
 
-    padding: 8px 16px;
-    background-color: white;
+    padding: 16px 40px 16px 24px;
+
+    background: white;
+    /* Gray 2 */
 
     outline: none;
 
-    border: 1px solid #1b2b65;
+    height: 100%;
+
+
+    border: 1px solid grey;
     border-radius: 8px;
 
-    font-family: 'Roboto';
-    font-weight: lighter;
-    font-size: 18px;
 
-    &:focus {
-        border-color: blue
-    }
+    font-style: normal;
+    //font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    /* identical to box height, or 130% */
+    /* Gray 2 */
+
+    color: grey;
 }
 
-.invalid {
-    border-color: red
+
+
+.input__control::placeholder {
+    color: grey;
 }
 
-.successed {
+.input__stateIcon {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+
+.input__control_invalid ~ .input__stateIcon {
+    //content: url("src/assets/images/error.svg");
+}
+
+.input__control_success ~ .input__stateIcon {
+    //content: url('src/assets/images/success.svg');
+}
+
+.input__control:focus {
     border-color: blue;
 }
+
+.input__control_invalid:focus {
+    border-color: red;
+}
+
+.fitcontent {
+    width: fit-content;
+}
+
 
 .warningLabel {
     color: red;

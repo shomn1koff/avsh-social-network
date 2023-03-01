@@ -9,7 +9,6 @@ let initialState = {
 		{ id: 4, message: "lololo", likesCount: 322 },
 		{ id: 5, message: "asidfddasd", likesCount: 12 },
 	],
-	newPostText: "fffffffff",
 	profile: null,
 	status: ""
 };
@@ -19,19 +18,15 @@ export const profilePageReducer = (state = initialState, action) => {
 		case ADD_NEW_POST: {
 			let newPost = {
 				id: state.posts.length + 1,
-				message: state.newPostText,
-				likesCount: 1488,
+				message: action.postText,
+				likesCount: 228,
 			};
 			return {
 				...state,
 				posts: [...state.posts, newPost],
-				newPostText: "",
 			};
 		}
 
-		case UPDATE_NEW_POST_TEXT: {
-			return { ...state, newPostText: action.text };
-		}
 		case SET_USER_PROFILE: {
 			return {
 				...state, profile: action.profile
@@ -53,16 +48,12 @@ export const profilePageReducer = (state = initialState, action) => {
 };
 
 const ADD_NEW_POST = "ADD-NEW-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE"
 const SET_USER_PROFILE_STATUS = "SET_USER_PROFILE_STATUS"
 const UPDATE_USER_PROFILE_STATUS = "UPDATE_USER_PROFILE_STATUS"
 
-export const addNewPostActionCreator = () => ({ type: ADD_NEW_POST });
-export const updateNewPostTextActionCreator = (text) => ({
-	type: UPDATE_NEW_POST_TEXT,
-	text: text,
-});
+export const addNewPostActionCreator = (postText) => ({ type: ADD_NEW_POST, postText });
+
 
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 

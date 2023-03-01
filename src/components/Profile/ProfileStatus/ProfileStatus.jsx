@@ -44,7 +44,7 @@ class ProfileStatus extends Component {
         //console.log('rendered')
         return (
             <div className={c.status_wrapper}>
-                {!this.state.editMode && <div className={c.status} onClick={this.activateEditMode} >Статус: {this.props.status}</div>}
+                {!this.state.editMode && <Input onClick={this.activateEditMode} readOnly value={`Статус: ${this.props.status}`}/>}
                 {this.state.editMode && <Input autoFocus onChange={this.onStatusChange} onBlur={this.deactivateEditMode} value={this.state.status} placeholder={this.state.status}/>}
             </div>
         );

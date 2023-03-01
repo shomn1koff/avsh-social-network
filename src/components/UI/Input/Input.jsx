@@ -1,24 +1,17 @@
 import React from 'react'
 import c from './Input.module.scss'
 
-const Input = ({placeholder, state, onBlur ,reference, value, onChange, onKeyDown, ...props}) => {
-  return (
-    <div className={c.input}>
-        <input {...props} type="text" onBlur={onBlur} placeholder={placeholder} className={`${c.control} ${c[state]}`} ref={reference} value={value} onChange={onChange} onKeyDown={onKeyDown}/>
-    </div>
-  )
-}
+export default function({state, reference, fit, input, meta, ...props}) {
 
-export const MyInput = ({state, reference, input, meta, ...props}) => {
-
-    const hasError = meta.touched && meta.error
+    const hasError = meta && meta.touched && meta.error
 
     return (
-        <div className={c.input}>
-            <input {...input} {...props}  className={`${c.control} ${c[state]} ` + (hasError ? c.invalid : '')} ref={reference}/>
+        <>
+            <div className={c.input}>
+                <input {...input} {...props}  className={`${c.input__control} ${c[state]} ` + (hasError ? c.input__control_invalid : '') + c[fit]} ref={reference}/>
+                <div className={c.input__stateIcon}></div>
+            </div>
             <div className={hasError ? c.warningLabel : c.noWarningLabel}>{hasError || 'noError'}</div>
-        </div>
+        </>
     )
 }
-
-export default Input

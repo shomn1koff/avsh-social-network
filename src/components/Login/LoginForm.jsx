@@ -10,22 +10,19 @@ import Button from "../UI/Button/Button";
 const maxLength20 = maxLengthCreator(20)
 
 const LoginForm = (props) => {
-
     return (
         <form className={c.loginFormWrapper} onSubmit={props.handleSubmit}>
             <h1 className={c.formTitle}>Login</h1>
             <div>
                 <div className={c.inputWrapper}>
                     <Field placeholder={'Enter Login'}
-                           name={'login'}
-                           type={'input'}
+                           name={'email'}
                            validate={[required, maxLength20]}
                            component={Input}/>
                 </div>
                 <div className={c.inputWrapper}>
                     <Field placeholder={'Enter Password'}
                            name={'password'}
-                           type={'input'}
                            validate={[required, maxLength20]}
                            component={Input}/>
                 </div>
@@ -34,6 +31,7 @@ const LoginForm = (props) => {
                 <Field name={'rememberMe'} title={'Remember me'} component={Checkbox} type={'checkbox'}/>
                 <button className={buttonStyles.button + ' ' + buttonStyles['secondary'] + ' ' + buttonStyles['fitcontent']}>Login</button>
             </div>
+            {props.error && <div className={c.error}>{props.error}</div>}
         </form>
     );
 };

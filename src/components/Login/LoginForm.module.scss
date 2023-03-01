@@ -1,0 +1,22 @@
+.loginFormWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 16px;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.checkboxAndButtonWrapper {
+  display: flex;
+  gap: 16px;
+}
+
+.formTitle {
+  font-size: 25px;
+  margin-top: 0;
+}

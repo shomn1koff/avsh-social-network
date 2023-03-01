@@ -16,7 +16,7 @@ export const MyInput = ({state, reference, input, meta, ...props}) => {
     return (
         <div className={c.input}>
             <input {...input} {...props}  className={`${c.control} ${c[state]} ` + (hasError ? c.invalid : '')} ref={reference}/>
-            <span>{meta.error}</span>
+            <div className={hasError ? c.warningLabel : c.noWarningLabel}>{hasError || 'noError'}</div>
         </div>
     )
 }

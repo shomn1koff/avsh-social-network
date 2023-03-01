@@ -2,29 +2,37 @@ import React from 'react';
 import {Field, reduxForm} from "redux-form";
 import Input, {MyInput} from "../UI/Input/Input";
 import {maxLengthCreator, required} from "../../utils/validators";
+import c from './LoginForm.module.scss'
+import buttonStyles from '../UI/Button/Button.module.scss'
+import Checkbox from "../UI/Input/Checkbox";
+import Button from "../UI/Button/Button";
 
 const maxLength20 = maxLengthCreator(20)
 
 const LoginForm = (props) => {
 
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form className={c.loginFormWrapper} onSubmit={props.handleSubmit}>
+            <h1 className={c.formTitle}>Login</h1>
             <div>
-                <Field placeholder={'Enter Login'}
-                       name={'login'}
-                       type={'input'}
-                       validate={[required, maxLength20]}
-                       component={MyInput}/>
-                <Field placeholder={'Enter Password'}
-                       name={'password'}
-                       type={'input'}
-                       component={MyInput}/>
+                <div className={c.inputWrapper}>
+                    <Field placeholder={'Enter Login'}
+                           name={'login'}
+                           type={'input'}
+                           validate={[required, maxLength20]}
+                           component={MyInput}/>
+                </div>
+                <div className={c.inputWrapper}>
+                    <Field placeholder={'Enter Password'}
+                           name={'password'}
+                           type={'input'}
+                           validate={[required, maxLength20]}
+                           component={MyInput}/>
+                </div>
             </div>
-            <div>
-                <Field name={'rememberMe'} component={"input"} type={'checkbox'}/>
-            </div>
-            <div>
-                <button>Login</button>
+            <div className={c.checkboxAndButtonWrapper}>
+                <Field name={'rememberMe'} title={'Remember me'} component={Checkbox} type={'checkbox'}/>
+                <button className={buttonStyles.button + ' ' + buttonStyles['secondary'] + ' ' + buttonStyles['fitcontent']}>Login</button>
             </div>
         </form>
     );

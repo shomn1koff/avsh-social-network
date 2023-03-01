@@ -34,3 +34,12 @@
 .successed {
     border-color: blue;
 }
+
+.warningLabel {
+    color: red;
+    display: inline;
+}
+
+.noWarningLabel {
+    visibility: hidden;
+}

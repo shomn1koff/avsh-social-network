@@ -1,7 +1,7 @@
 import {connect} from "react-redux";
 import {
     setCurrentPage,
-    getUsers, follow, unfollow
+    requestUsers, follow, unfollow
 } from "../../../redux/usersPageReducer";
 
 import React from "react";
@@ -10,6 +10,13 @@ import Users from "./Users";
 import Preloader from "../../UI/Preloader/Preloader";
 import withAuthRedirect from "../../../hoc/withAuthRedirect";
 import {compose} from "redux";
+import {
+    getCurrentPage,
+    getIsFetching,
+    getIsFollowing,
+    getPageSize,
+    getTotalUsersCount, getUsers, getUsersSelector, getUsersSuperSelector
+} from "../../../redux/usersSelectors";
 
 class UserListAPIContainer extends React.Component {
     componentDidMount() {
@@ -22,6 +29,7 @@ class UserListAPIContainer extends React.Component {
     };
 
     render() {
+        console.log('render')
         return (
             <>
                 {this.props.isFetching ?
@@ -43,13 +51,14 @@ class UserListAPIContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log('mstp')
     return {
-        users: state.usersPage.users,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        pageSize: state.usersPage.pageSize,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        isFollowing: state.usersPage.isFollowing,
+        users: getUsers(state),
+        totalUsersCount: getTotalUsersCount(state),
+        pageSize: getPageSize(state),
+        currentPage: getCurrentPage(state),
+        isFetching: getIsFetching(state),
+        isFollowing: getIsFollowing(state),
     };
 };
 
@@ -83,7 +92,7 @@ export default compose(
         mapStateToProps,
         {
             setCurrentPage,
-            getUsers, follow, unfollow
+            getUsers: requestUsers, follow, unfollow
         }
     ),
 )(UserListAPIContainer)

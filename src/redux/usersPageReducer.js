@@ -7,10 +7,16 @@ let initialState = {
     totalUsersCount: 0,
     isFetching: false,
     isFollowing: [],
+    fake: 0
 };
 
 export const usersPageReducer = (state = initialState, action) => {
     switch (action.type) {
+        case 'FAKE':
+            return {
+                ...state,
+                fake: state.fake + 1
+            }
         case SET_USERS:
             return {
                 ...state,
@@ -85,10 +91,10 @@ export const setTotalUsersCount = (totalUsersCount) => ({type: SET_TOTAL_USERS_C
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 export const toggleIsFollowing = (isFetching, userID) => ({type: TOGGLE_IS_FOLLOWING, isFetching, userID})
 
-export const getUsers = (currentPage, pageSize) => {
+export const requestUsers = (page, pageSize) => {
     return (dispatch) => {
         dispatch(toggleIsFetching(true))
-        usersAPI.getUsers(currentPage, pageSize).then((data) => {
+        usersAPI.getUsers(page, pageSize).then((data) => {
             //console.log()
             dispatch(toggleIsFetching(false))
             dispatch(setTotalUsersCount(data.totalCount))

@@ -3,12 +3,13 @@ import Posts from './Posts/Posts'
 import c from './Profile.module.scss'
 import ProfileInfo from './ProfileInfo/ProfileInfo'
 import ProfileStatus from "./ProfileStatus/ProfileStatus";
+import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
 const Profile = (props) => {
     return (
         <div className={c.content}>
             <ProfileInfo profile={props.profile}/>
-            <ProfileStatus status={props.status} updateStatus={props.updateUserProfileStatus}/>
+            <ProfileStatusWithHooks status={props.status} updateStatus={props.updateUserProfileStatus}/>
             <Posts/>
         </div>
     )

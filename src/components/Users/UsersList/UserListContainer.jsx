@@ -15,7 +15,7 @@ import {
     getIsFetching,
     getIsFollowing,
     getPageSize,
-    getTotalUsersCount, getUsers, getUsersSelector, getUsersSuperSelector
+    getTotalUsersCount, getUsers,
 } from "../../../redux/usersSelectors";
 
 class UserListAPIContainer extends React.Component {

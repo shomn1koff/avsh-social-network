@@ -42,6 +42,17 @@
   }
 }
 
+.third {
+  background-color: #69129e;
+  color: #fff;
+  transition: opacity 200ms ease-in-out, background-color 200ms ease-in-out;
+
+  &:hover {
+    background-color: #7c13b9;
+    cursor: pointer;
+  }
+}
+
 .fitcontent {
   width: 100%;
 }

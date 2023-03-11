@@ -1,10 +1,10 @@
 .button {
     display: inline-block;
-    margin-right: 8px;
-    margin-bottom: 8px;
-    width: 50px;
+    min-width: 50px;
 }
 
 .buttonContainer {
+    display: flex;
+    gap: 8px;
     margin-bottom: 8px;
 }

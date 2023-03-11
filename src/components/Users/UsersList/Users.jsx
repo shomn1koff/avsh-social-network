@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../../UI/Button/Button";
 import UserItem from "./UserItem/UserItem";
 import c from './UserList.module.scss'
+import Paginator from "./Paginator";
 
 const Users = (props) => {
 	let pages = [];
@@ -9,25 +10,11 @@ const Users = (props) => {
 		props.totalUsersCount / props.pageSize
 	);
 
-	for (let i = 1; i <= pagesCount / 100; i++) {
+	for (let i = 1; i <= pagesCount; i++) {
 		pages.push(i);
 	}
 	//console.log(pages);
-	let buttons = pages.map((p) => {
-		return (
-			<div className={c.button} key={p}>
-				<Button
-					type={
-						props.currentPage === p ? "primary" : "secondary"
-					}
-					onClick={(e) => props.onPageChanged(p)}
-					fit={"fitcontent"}
-				>
-					{p}
-				</Button>
-			</div>
-		);
-	});
+
 	let userItems = props.users.map((u) => {
 		return (
 			<UserItem
@@ -46,7 +33,9 @@ const Users = (props) => {
 
 	return (
 		<div>
-			<div className={c.buttonContainer}>{buttons}</div>
+			<Paginator pages={pages}
+					   onPageChanged={props.onPageChanged}
+					   currentPage={props.currentPage} pagesCount={pagesCount}/>
 			{userItems}
 		</div>
 	);

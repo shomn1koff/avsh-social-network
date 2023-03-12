@@ -5,7 +5,7 @@ import UsersPage from './components/Users/UsersPage';
 import LoginPage from './components/Login/Login'
 
 import {            
-  BrowserRouter as Router,
+  HashRouter as Router,
 
   Routes,
   Route,
@@ -13,10 +13,8 @@ import {
 import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from "./components/Header/HeaderContainer";
 import {Component} from "react";
-import {checkAuthorization} from "./redux/authReducer";
 import {connect} from "react-redux";
 import {compose} from "redux";
-import withRouter from "./reactRouter/withRouter";
 import {initializeApp} from "./redux/appReducer";
 import Preloader from "./components/UI/Preloader/Preloader";
 

@@ -29,7 +29,6 @@ class UserListAPIContainer extends React.Component {
     };
 
     render() {
-        console.log('render')
         return (
             <>
                 {this.props.isFetching ?
@@ -51,7 +50,6 @@ class UserListAPIContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log('mstp')
     return {
         users: getUsers(state),
         totalUsersCount: getTotalUsersCount(state),

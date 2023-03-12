@@ -25,8 +25,6 @@ const Paginator = ({pages, currentPage, onPageChanged, pagesCount, portionSize =
     let leftBorder = (portionNumber - 1) * portionSize + 1
     let rightBorder = portionNumber * portionSize
 
-    console.log(portionsCount)
-
     return (
         <>
             <div className={c.buttonContainer}>

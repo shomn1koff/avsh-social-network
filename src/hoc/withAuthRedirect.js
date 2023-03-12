@@ -13,7 +13,6 @@ let withAuthRedirect = (Component) => {
     class RedirectComponent extends React.Component {
 
         render() {
-            console.log(this.props)
             if (!this.props.isAuth) return <Navigate to={'/login'}/>
 
             return <Component {...this.props}/>

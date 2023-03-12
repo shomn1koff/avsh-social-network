@@ -28,7 +28,6 @@ const Dialogs = ({dialogsPage, addNewMessage, updateNewMessageBody, newMessageBo
     addNewMessage(formData.message)
   }
 
-
   return (
     <div className={c.dialogsWrapper}>
         <div className={c.dialogs}>

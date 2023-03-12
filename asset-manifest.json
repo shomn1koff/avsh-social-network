@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/shomn1koff/avsh-social-network/static/css/main.b6fef05a.css",
-    "main.js": "/shomn1koff/avsh-social-network/static/js/main.f6e103cb.js",
-    "static/media/preloader.svg": "/shomn1koff/avsh-social-network/static/media/preloader.f20e25c58eb42804828eff8f82aa55ce.svg",
-    "index.html": "/shomn1koff/avsh-social-network/index.html",
-    "main.b6fef05a.css.map": "/shomn1koff/avsh-social-network/static/css/main.b6fef05a.css.map",
-    "main.f6e103cb.js.map": "/shomn1koff/avsh-social-network/static/js/main.f6e103cb.js.map"
+    "main.css": "/avsh-social-network/static/css/main.b6fef05a.css",
+    "main.js": "/avsh-social-network/static/js/main.281e0abd.js",
+    "static/media/preloader.svg": "/avsh-social-network/static/media/preloader.f20e25c58eb42804828eff8f82aa55ce.svg",
+    "index.html": "/avsh-social-network/index.html",
+    "main.b6fef05a.css.map": "/avsh-social-network/static/css/main.b6fef05a.css.map",
+    "main.281e0abd.js.map": "/avsh-social-network/static/js/main.281e0abd.js.map"
   },
   "entrypoints": [
     "static/css/main.b6fef05a.css",
-    "static/js/main.f6e103cb.js"
+    "static/js/main.281e0abd.js"
   ]
 }

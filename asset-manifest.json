@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/avsh-social-network/static/css/main.b6fef05a.css",
-    "main.js": "/avsh-social-network/static/js/main.4a091177.js",
+    "main.js": "/avsh-social-network/static/js/main.9bb98e73.js",
     "static/media/preloader.svg": "/avsh-social-network/static/media/preloader.f20e25c58eb42804828eff8f82aa55ce.svg",
     "index.html": "/avsh-social-network/index.html",
     "main.b6fef05a.css.map": "/avsh-social-network/static/css/main.b6fef05a.css.map",
-    "main.4a091177.js.map": "/avsh-social-network/static/js/main.4a091177.js.map"
+    "main.9bb98e73.js.map": "/avsh-social-network/static/js/main.9bb98e73.js.map"
   },
   "entrypoints": [
     "static/css/main.b6fef05a.css",
-    "static/js/main.4a091177.js"
+    "static/js/main.9bb98e73.js"
   ]
 }

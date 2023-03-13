@@ -7,13 +7,23 @@ import withAuthRedirect from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 
 class ProfileContainer extends React.Component {
-    componentDidMount() {
+
+    refresh() {
         let userId = this.props.router.params.userId
         if (!userId) {
             userId = this.props.authorizedUserID
         }
         this.props.getUserProfile(userId)
         this.props.getUserProfileStatus(userId)
+    }
+    componentDidMount() {
+        this.refresh()
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.router.params.userId != prevProps.router.params.userId) {
+            this.refresh()
+        }
     }
 
     render() {

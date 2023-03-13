@@ -12,17 +12,18 @@ const maxLength20 = maxLengthCreator(20)
 const LoginForm = (props) => {
     return (
         <form className={c.loginFormWrapper} onSubmit={props.handleSubmit}>
-            <h1 className={c.formTitle}>Login</h1>
+            <h1 className={c.formTitle}>Login (для тестирования -- email: free@samuraijs.com, password: free))</h1>
             <div>
                 <div className={c.inputWrapper}>
-                    <Field placeholder={'Enter Login'}
+                    <Field placeholder={'Введите логин'}
                            name={'email'}
                            validate={[required, maxLength20]}
                            component={Input}/>
                 </div>
                 <div className={c.inputWrapper}>
-                    <Field placeholder={'Enter Password'}
+                    <Field placeholder={'Введите пароль'}
                            name={'password'}
+                           type={'password'}
                            validate={[required, maxLength20]}
                            component={Input}/>
                 </div>

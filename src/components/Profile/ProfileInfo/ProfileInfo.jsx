@@ -2,11 +2,16 @@ import React from "react";
 import Preloader from "../../UI/Preloader/Preloader";
 import c from "./ProfileInfo.module.scss";
 
-const ProfileInfo = (props) => {
+const ProfileInfo = ({savePhoto, ...props}) => {
 	if (!props.profile) {
 		return <Preloader />;
 	}
 
+	const onAvatarSelected = (e) => {
+		if(e.target.files.length) {
+			savePhoto(e.target.files[0])
+		}
+	}
 
 
 	return (
@@ -21,11 +26,13 @@ const ProfileInfo = (props) => {
 					}
 					alt="ava"
 				/>
+
 				<div className={c.nameAndDescription}>
 					<p className={c.profileName}>{props.profile.fullName}</p>
 					<p className={c.profileDescription}>
 						{props.profile.aboutMe}
 					</p>
+					{props.isOwner && <input onChange={onAvatarSelected} type="file"/>}
 				</div>
 			</div>
 		</div>
